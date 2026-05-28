@@ -45,9 +45,9 @@ export default function RootLayout({
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">
           {children}
+          <ShareButton />
           <PromotionBanners />
         </main>
-        <ShareButton />
         <footer className="bg-white border-t border-gray-200 mt-12 py-10">
           <div className="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
             <p>© 2026 Software Vault. 모든 소프트웨어의 저작권은 해당 개발사에게 있습니다.</p>
