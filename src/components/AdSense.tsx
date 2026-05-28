@@ -7,7 +7,7 @@ interface AdSenseProps {
   responsive?: boolean;
 }
 
-export default function AdSense({ slot, format = 'horizontal', responsive = true }: AdSenseProps) {
+export default function AdSense({ slot, format = 'auto', responsive = true }: AdSenseProps) {
   useEffect(() => {
     try {
       // @ts-ignore
@@ -21,8 +21,8 @@ export default function AdSense({ slot, format = 'horizontal', responsive = true
     <div className="w-full flex justify-center my-6 overflow-hidden">
       {/* 구글 애드센스 실제 코드가 들어갈 자리 */}
       <ins
-        className="adsbygoogle bg-slate-800/40 flex items-center justify-center text-sm text-slate-500 border border-dashed border-slate-700/50 rounded-lg w-full overflow-hidden"
-        style={{ display: 'block', minHeight: '90px', maxHeight: '250px' }}
+        className="adsbygoogle bg-slate-800/40 flex items-center justify-center text-sm text-slate-500 border border-dashed border-slate-700/50 rounded-lg min-h-[90px] w-full"
+        style={{ display: 'block' }}
         data-ad-client="ca-pub-6635245275061755"
         data-ad-slot="3763277922"
         data-ad-format={format}
