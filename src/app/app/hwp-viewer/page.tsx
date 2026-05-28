@@ -27,13 +27,13 @@ export default function HwpViewerDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
-        <div className="w-24 h-24 bg-blue-500 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
+        <div className="w-24 h-24 bg-slate-800/600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           ㅎ
         </div>
         <div className="flex-1">
           <div className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-3">국민 필수 오피스 뷰어</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">한글(HWP) 뷰어 2024</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">한글(HWP) 뷰어 2024</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: 한글과컴퓨터 | 카테고리: 오피스/문서 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.6 (관공서 필수)</span>
@@ -45,8 +45,8 @@ export default function HwpViewerDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">HWP, HWPX 문서 완전 무료 열람 프로그램</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">HWP, HWPX 문서 완전 무료 열람 프로그램</h2>
         <p className="text-slate-300 mb-8">문서를 수정할 필요 없이 읽고 인쇄만 하실 거라면, 무거운 정품 대신 가볍고 무료인 한컴오피스 공식 뷰어를 사용하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -61,8 +61,8 @@ export default function HwpViewerDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">HWPX 파일이 안 열린다면?</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">HWPX 파일이 안 열린다면?</h2>
         <p className="text-slate-300 leading-relaxed mb-6">최근 정부 기관과 관공서에서 기본 문서 형식을 <code>HWP</code>에서 개방형인 <code>HWPX</code>로 완전히 변경했습니다. 예전 구버전 한글 프로그램에서는 이 HWPX 파일이 열리지 않아 당황하시는 분들이 많습니다.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">💡 해결 방법</h3>

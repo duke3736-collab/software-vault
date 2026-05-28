@@ -27,13 +27,13 @@ export default function RobloxFpsUnlockerDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-gray-900 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           R
         </div>
         <div className="flex-1">
           <div className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mb-3">프레임 드랍 완벽 해결</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">로블록스 FPS 언락커 (Unlocker)</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">로블록스 FPS 언락커 (Unlocker)</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: axstin | 카테고리: 게임 최적화 (오픈소스) | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (필수 애드온)</span>
@@ -45,8 +45,8 @@ export default function RobloxFpsUnlockerDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">60Hz 답답한 화면은 그만! 144Hz 이상 지원</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">60Hz 답답한 화면은 그만! 144Hz 이상 지원</h2>
         <p className="text-slate-300 mb-8">로블록스 자체의 60프레임 제한을 풀어주어, 좋은 모니터 성능을 100% 발휘하게 해주는 무설치(포터블) 프로그램입니다.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -61,8 +61,8 @@ export default function RobloxFpsUnlockerDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">FPS 언락커 밴(정지) 당하지 않나요?</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">FPS 언락커 밴(정지) 당하지 않나요?</h2>
         <p className="text-slate-300 leading-relaxed mb-6">많은 유저들이 걱정하는 부분이지만, <strong>절대 정지(Ban)를 당하지 않습니다.</strong> 2019년에 로블록스 부사장(VP of Engineering)이 공식적으로 "FPS 언락커를 사용하는 것은 규정 위반이 아니며 정지하지 않는다"고 직접 오피셜 선언을 했기 때문에 안심하고 사용하셔도 됩니다.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">🚀 초간단 1초 적용 방법</h3>

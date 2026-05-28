@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function NotionDownload() {
   return (
     <div className="max-w-4xl mx-auto space-y-10">
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-gray-900 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           N
         </div>
         <div className="flex-1">
           <div className="inline-block bg-gray-100 text-gray-800 text-xs font-bold px-3 py-1 rounded-full mb-3">압도적 1위 생산성 앱</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">노션 (Notion) PC 데스크톱</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">노션 (Notion) PC 데스크톱</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: Notion Labs | 카테고리: 생산성/메모 | 라이선스: 무료 (개인용)</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (대학생/직장인 필수)</span>
@@ -30,8 +30,8 @@ export default function NotionDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">웹브라우저보다 2배 빠른 전용 앱 다운로드</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">웹브라우저보다 2배 빠른 전용 앱 다운로드</h2>
         <p className="text-slate-300 mb-8">웹에서 매번 탭을 열어 쓰는 것보다, 전용 데스크톱 앱을 설치하면 알림과 단축키 등 훨씬 쾌적한 작업이 가능합니다.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -45,8 +45,8 @@ export default function NotionDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">노션 초기 세팅 완벽 가이드</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">노션 초기 세팅 완벽 가이드</h2>
         <p className="text-slate-300 leading-relaxed mb-6">처음 노션을 설치하고 영어로 나와서 당황하셨나요? 노션은 완벽한 한글을 지원합니다.</p>
         <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>한글 변경 방법:</strong> 왼쪽 사이드바에서 <code>Settings & Members</code> 클릭 ➡️ <code>Language & region</code> 클릭 ➡️ 한국어(Korean)로 변경!</li>

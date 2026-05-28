@@ -27,13 +27,13 @@ export default function AnySign4PcDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-gray-800 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           A
         </div>
         <div className="flex-1">
           <div className="inline-block bg-orange-100 text-orange-600 text-xs font-bold px-3 py-1 rounded-full mb-3">관공서 필수 프로그램</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">AnySign4PC (통합 보안 프로그램)</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">AnySign4PC (통합 보안 프로그램)</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: 한컴위드 | 카테고리: 공인인증/보안 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 2.1 (강제설치 불만 다수)</span>
@@ -45,8 +45,8 @@ export default function AnySign4PcDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">설치 오류 해결용 수동 다운로드</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">설치 오류 해결용 수동 다운로드</h2>
         <p className="text-slate-300 mb-8">관공서 사이트에서 '설치됨'이 뜨지 않거나 무한 재설치를 요구할 때, 아래 수동 파일을 받아 직접 설치하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -61,8 +61,8 @@ export default function AnySign4PcDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">AnySign4PC 무한설치 오류 해결 방법</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">AnySign4PC 무한설치 오류 해결 방법</h2>
         <p className="text-slate-300 leading-relaxed mb-6">분명히 설치를 완료했는데도 새로고침하면 다시 설치하라고 뜨는 <strong>'무한 설치 굴레'</strong>에 빠지셨나요? 브라우저 캐시 문제이거나 기존 프로세스가 엉켜서 발생하는 문제입니다. 아래 순서대로 3분만 투자하면 완벽하게 해결할 수 있습니다.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">💡 3단계 해결법</h3>

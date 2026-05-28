@@ -27,13 +27,13 @@ export default function ThreeDPNetDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-green-600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           3
         </div>
         <div className="flex-1">
           <div className="inline-block bg-green-100 text-green-600 text-xs font-bold px-3 py-1 rounded-full mb-3">포맷 직후 1순위 필수템</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">3DP Net / 3DP Chip</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">3DP Net / 3DP Chip</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: 3DP | 카테고리: 하드웨어 드라이버 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (필수 유틸리티)</span>
@@ -45,8 +45,8 @@ export default function ThreeDPNetDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">인터넷 연결 없는 오프라인 설치 지원</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">인터넷 연결 없는 오프라인 설치 지원</h2>
         <p className="text-slate-300 mb-8">랜카드를 자동으로 인식하여 오프라인 상태에서도 인터넷을 연결해주는 3DP Net을 먼저 다운받아 USB에 담아두세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -65,8 +65,8 @@ export default function ThreeDPNetDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">포맷 전 반드시 준비해야 할 파일 1순위</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">포맷 전 반드시 준비해야 할 파일 1순위</h2>
         <p className="text-slate-300 leading-relaxed mb-6">윈도우를 포맷하면 가장 흔하게 겪는 패닉이 바로 <strong>'인터넷 연결 안됨'</strong> 현상입니다. 메인보드의 랜(LAN)카드 드라이버가 없기 때문인데요. 인터넷이 안 되니 드라이버를 다운받을 수도 없는 악순환에 빠지게 됩니다.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">💡 3DP 시리즈 사용 순서 완벽 가이드</h3>

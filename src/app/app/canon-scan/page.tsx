@@ -27,13 +27,13 @@ export default function CanonScanDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-red-600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           C
         </div>
         <div className="flex-1">
           <div className="inline-block bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full mb-3">사무실 필수 유틸리티</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">캐논 스캔 유틸리티 (MF Scan)</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">캐논 스캔 유틸리티 (MF Scan)</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: Canon | 카테고리: 업무용 소프트웨어 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.7 (직장인 강력 추천)</span>
@@ -45,8 +45,8 @@ export default function CanonScanDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">캐논 스캐너 통합 프로그램 다이렉트 다운로드</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">캐논 스캐너 통합 프로그램 다이렉트 다운로드</h2>
         <p className="text-slate-300 mb-8">기종 모델명을 몰라도 괜찮습니다. 대부분의 캐논 복합기를 지원하는 통합 스캔 유틸리티를 바로 다운로드하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -61,8 +61,8 @@ export default function CanonScanDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">PC에서 스캔 버튼이 안 눌리거나 파일을 못 찾을 때</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">PC에서 스캔 버튼이 안 눌리거나 파일을 못 찾을 때</h2>
         <p className="text-slate-300 leading-relaxed mb-6">"분명 프린터는 되는데 스캔은 어떻게 컴퓨터로 저장하지?" 사무실에서 캐논 복합기(IR ADV, MF 시리즈 등)를 쓸 때 누구나 한 번쯤 겪는 당황스러운 상황입니다. 공식 <strong>MF Scan Utility</strong>만 설치하면 클릭 한 번에 PDF로 스캔이 완료됩니다.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">📄 1분 만에 스캔하는 방법 가이드</h3>

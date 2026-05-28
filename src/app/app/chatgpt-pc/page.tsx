@@ -24,12 +24,12 @@ export default function ChatGptPcDownload() {
     <div className="max-w-4xl mx-auto space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-green-100 text-green-600 rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           G
         </div>
         <div className="flex-1">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">ChatGPT (챗GPT) 데스크톱</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">ChatGPT (챗GPT) 데스크톱</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: OpenAI | 카테고리: AI 도구 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.8 (54,000+ 리뷰)</span>
@@ -41,8 +41,8 @@ export default function ChatGptPcDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">공식 데스크톱 최신버전 다운로드</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">공식 데스크톱 최신버전 다운로드</h2>
         <p className="text-slate-300 mb-8">웹 브라우저 없이 바탕화면에서 바로 인공지능을 호출하세요. (단축키 지원)</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -61,8 +61,8 @@ export default function ChatGptPcDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">더 빠르고 강력해진 챗GPT 데스크톱 앱</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">더 빠르고 강력해진 챗GPT 데스크톱 앱</h2>
         <p className="text-slate-300 leading-relaxed mb-6">매번 크롬 브라우저를 열어 챗GPT 사이트에 접속하시나요? 이제 OpenAI가 정식으로 배포한 데스크톱 전용 앱을 설치하여 생산성을 극대화해 보세요.</p>
         
         <h3 className="text-xl font-bold text-white mb-4">✨ 데스크톱 버전만의 특별한 기능</h3>

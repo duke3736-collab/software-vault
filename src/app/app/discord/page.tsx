@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 export default function DiscordDownload() {
   return (
     <div className="max-w-4xl mx-auto space-y-10">
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start md:items-center">
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 flex flex-col md:flex-row gap-8 items-start md:items-center">
         <div className="w-24 h-24 bg-indigo-600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold flex-shrink-0">
           D
         </div>
         <div className="flex-1">
           <div className="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full mb-3">글로벌 음성 메신저</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">디스코드 (Discord)</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">디스코드 (Discord)</h1>
           <p className="text-lg text-slate-300 mb-4">개발사: Discord Inc. | 카테고리: 음성/채팅 | 라이선스: 무료</p>
           <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (게이머 필수)</span>
@@ -30,8 +30,8 @@ export default function DiscordDownload() {
         </div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">끊김 없는 초고음질 음성/화상 채팅 프로그램</h2>
+      <section className="bg-slate-800/60 rounded-3xl p-8 text-center border border-slate-700/50">
+        <h2 className="text-2xl font-bold text-white mb-4">끊김 없는 초고음질 음성/화상 채팅 프로그램</h2>
         <p className="text-slate-300 mb-8">롤(LoL), 발로란트, 배그 할 때 필수! 브라우저보다 훨씬 빠르고 가벼운 전용 PC 앱을 설치하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -45,8 +45,8 @@ export default function DiscordDownload() {
         </div>
       </section>
 
-      <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">내 목소리가 안 들린다? 마이크 오류 1분 해결법</h2>
+      <section className="bg-slate-800/40 rounded-3xl p-8 shadow-sm border border-slate-700/50 prose prose-blue max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-4 mt-0">내 목소리가 안 들린다? 마이크 오류 1분 해결법</h2>
         <p className="text-slate-300 leading-relaxed mb-6">디스코드를 처음 깔고 방에 들어갔는데 내 목소리가 팀원들에게 안 들리는 흔한 오류! 아주 쉽게 고칠 수 있습니다.</p>
         <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>설정 진입:</strong> 왼쪽 하단 내 닉네임 옆 <strong>[톱니바퀴 (사용자 설정)]</strong> 클릭</li>
