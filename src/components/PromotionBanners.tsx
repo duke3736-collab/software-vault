@@ -57,9 +57,9 @@ export default function PromotionBanners() {
         </div>
       </a>
 
-      {/* 4. 쿠팡 파트너스 배너 1 (노트북/컴퓨터) */}
+      {/* 4. 쿠팡 파트너스 배너 1 (맥북) */}
       <a 
-        href="https://coupa.ng/b00000" // TODO: 대표님 실제 쿠팡 링크로 변경 예정
+        href="#" // TODO: 맥북 쿠팡 링크로 변경
         target="_blank" 
         rel="noopener noreferrer"
         className="block bg-gray-800 text-white rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1 mt-4"
@@ -68,33 +68,54 @@ export default function PromotionBanners() {
           <div className="flex items-center gap-3">
             <span className="text-2xl">💻</span>
             <div>
-              <h3 className="font-bold text-lg mb-1">새 프로그램은 쾌적한 새 컴퓨터에서!</h3>
-              <p className="text-gray-300 text-sm">쿠팡 로켓배송 노트북 / Apple Mac 특가 기획전 바로가기</p>
+              <h3 className="font-bold text-lg mb-1">새 프로그램은 쾌적한 환경에서! Apple 맥북 특가전</h3>
+              <p className="text-gray-300 text-sm">크리에이터 필수품 맥북 에어/프로 쿠팡 로켓배송 최저가</p>
             </div>
           </div>
           <div className="bg-gray-700 px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap hidden sm:block">
-            최저가 확인하기 🛒
+            맥북 보러가기 🍎
           </div>
         </div>
       </a>
       
-      {/* 5. 쿠팡 파트너스 배너 2 (PC주변기기) */}
+      {/* 5. 쿠팡 파트너스 배너 2 (로지텍 마우스) */}
       <a 
-        href="https://coupa.ng/b00000" // TODO: 대표님 실제 쿠팡 링크로 변경 예정
+        href="#" // TODO: 로지텍 마우스 쿠팡 링크로 변경
         target="_blank" 
         rel="noopener noreferrer"
-        className="block bg-red-50 text-red-700 border border-red-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
+        className="block bg-blue-50 text-blue-800 border border-blue-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">🖱️</span>
+            <div>
+              <h3 className="font-bold text-lg mb-1">국민 마우스 로지텍(Logitech) 무선 마우스 초특가</h3>
+              <p className="text-blue-600 text-sm">사무용부터 게이밍까지, 손목이 편안한 마우스 로켓배송</p>
+            </div>
+          </div>
+          <div className="bg-blue-100 px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap hidden sm:block">
+            마우스 구경하기 🚀
+          </div>
+        </div>
+      </a>
+
+      {/* 6. 쿠팡 파트너스 배너 3 (로지텍 키보드) */}
+      <a 
+        href="#" // TODO: 로지텍 키보드 쿠팡 링크로 변경
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block bg-red-50 text-red-800 border border-red-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-2xl">⌨️</span>
             <div>
-              <h3 className="font-bold text-lg mb-1">손목이 편안한 로지텍 마우스 & 기계식 키보드</h3>
-              <p className="text-red-500 text-sm">업무 효율 200% 상승! PC 주변기기 초특가 로켓배송</p>
+              <h3 className="font-bold text-lg mb-1">타건감 끝판왕 로지텍 기계식/사무용 키보드 특가</h3>
+              <p className="text-red-600 text-sm">업무 효율 200% 상승! 인기 키보드 할인 기획전</p>
             </div>
           </div>
           <div className="bg-red-100 px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap hidden sm:block">
-            할인 상품 보기 🚀
+            키보드 구경하기 🚀
           </div>
         </div>
       </a>
