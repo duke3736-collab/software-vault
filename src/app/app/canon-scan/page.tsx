@@ -34,8 +34,8 @@ export default function CanonScanDownload() {
         <div className="flex-1">
           <div className="inline-block bg-red-100 text-red-600 text-xs font-bold px-3 py-1 rounded-full mb-3">사무실 필수 유틸리티</div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">캐논 스캔 유틸리티 (MF Scan)</h1>
-          <p className="text-lg text-gray-600 mb-4">개발사: Canon | 카테고리: 업무용 소프트웨어 | 라이선스: 무료</p>
-          <div className="flex gap-4 text-sm text-gray-500">
+          <p className="text-lg text-slate-300 mb-4">개발사: Canon | 카테고리: 업무용 소프트웨어 | 라이선스: 무료</p>
+          <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.7 (직장인 강력 추천)</span>
             <span>⬇️ 500만+ 다운로드</span>
           </div>
@@ -47,7 +47,7 @@ export default function CanonScanDownload() {
 
       <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">캐논 스캐너 통합 프로그램 다이렉트 다운로드</h2>
-        <p className="text-gray-600 mb-8">기종 모델명을 몰라도 괜찮습니다. 대부분의 캐논 복합기를 지원하는 통합 스캔 유틸리티를 바로 다운로드하세요.</p>
+        <p className="text-slate-300 mb-8">기종 모델명을 몰라도 괜찮습니다. 대부분의 캐논 복합기를 지원하는 통합 스캔 유틸리티를 바로 다운로드하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://kr.canon/support/printer" target="_blank" rel="nofollow noopener" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
@@ -63,10 +63,10 @@ export default function CanonScanDownload() {
 
       <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">PC에서 스캔 버튼이 안 눌리거나 파일을 못 찾을 때</h2>
-        <p className="text-gray-700 leading-relaxed mb-6">"분명 프린터는 되는데 스캔은 어떻게 컴퓨터로 저장하지?" 사무실에서 캐논 복합기(IR ADV, MF 시리즈 등)를 쓸 때 누구나 한 번쯤 겪는 당황스러운 상황입니다. 공식 <strong>MF Scan Utility</strong>만 설치하면 클릭 한 번에 PDF로 스캔이 완료됩니다.</p>
+        <p className="text-slate-300 leading-relaxed mb-6">"분명 프린터는 되는데 스캔은 어떻게 컴퓨터로 저장하지?" 사무실에서 캐논 복합기(IR ADV, MF 시리즈 등)를 쓸 때 누구나 한 번쯤 겪는 당황스러운 상황입니다. 공식 <strong>MF Scan Utility</strong>만 설치하면 클릭 한 번에 PDF로 스캔이 완료됩니다.</p>
         
-        <h3 className="text-xl font-bold text-gray-900 mb-4">📄 1분 만에 스캔하는 방법 가이드</h3>
-        <ul className="space-y-3 mb-8 text-gray-700">
+        <h3 className="text-xl font-bold text-white mb-4">📄 1분 만에 스캔하는 방법 가이드</h3>
+        <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>1. 프로그램 설치:</strong> 다운로드 받은 설치 파일을 실행하여 설치를 완료합니다. (이때 프린터 전원이 켜져 있고, PC와 USB 혹은 같은 와이파이 망에 연결되어 있어야 합니다.)</li>
           <li><strong>2. 스캐너 선택:</strong> <code>MF Scan Utility</code>를 실행하고, 상단의 '제품 이름' 드롭다운 메뉴에서 사무실에 있는 캐논 복합기를 선택합니다.</li>
           <li><strong>3. 스캔 대상 올리기:</strong> 복합기 뚜껑을 열고 문서를 올리거나, 상단 급지대(ADF)에 여러 장의 서류를 올려둡니다.</li>

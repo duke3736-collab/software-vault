@@ -35,8 +35,8 @@ export default function ClaudePcDownload() {
         </div>
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Claude (클로드) PC버전</h1>
-          <p className="text-lg text-gray-600 mb-4">개발사: Anthropic | 카테고리: AI 도구 | 라이선스: 무료</p>
-          <div className="flex gap-4 text-sm text-gray-500">
+          <p className="text-lg text-slate-300 mb-4">개발사: Anthropic | 카테고리: AI 도구 | 라이선스: 무료</p>
+          <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (12,000+ 리뷰)</span>
             <span>⬇️ 100만+ 다운로드</span>
           </div>
@@ -50,7 +50,7 @@ export default function ClaudePcDownload() {
       {/* Download CTA Section (핵심 수익 영역) */}
       <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">안전한 공식 최신버전 다운로드</h2>
-        <p className="text-gray-600 mb-8">운영체제에 맞는 버전을 선택하세요. 바이러스 검사를 통과한 공식 링크입니다.</p>
+        <p className="text-slate-300 mb-8">운영체제에 맞는 버전을 선택하세요. 바이러스 검사를 통과한 공식 링크입니다.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://claude.ai/download" target="_blank" rel="nofollow noopener" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
@@ -72,10 +72,10 @@ export default function ClaudePcDownload() {
       {/* SEO Content Section */}
       <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">클로드(Claude) PC버전, 왜 필수일까요?</h2>
-        <p className="text-gray-700 leading-relaxed mb-6">최근 챗GPT를 뛰어넘는 코딩 능력과 문서 분석 능력으로 극찬받고 있는 Anthropic의 AI '클로드(Claude)'가 드디어 공식 데스크톱 버전을 출시했습니다. 웹 브라우저를 열 필요 없이 바탕화면에서 바로 실행하여 업무 효율을 200% 끌어올리세요.</p>
+        <p className="text-slate-300 leading-relaxed mb-6">최근 챗GPT를 뛰어넘는 코딩 능력과 문서 분석 능력으로 극찬받고 있는 Anthropic의 AI '클로드(Claude)'가 드디어 공식 데스크톱 버전을 출시했습니다. 웹 브라우저를 열 필요 없이 바탕화면에서 바로 실행하여 업무 효율을 200% 끌어올리세요.</p>
         
-        <h3 className="text-xl font-bold text-gray-900 mb-4">✨ 주요 기능 3가지</h3>
-        <ul className="space-y-3 mb-8 text-gray-700">
+        <h3 className="text-xl font-bold text-white mb-4">✨ 주요 기능 3가지</h3>
+        <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>강력한 문서 첨부 (최대 5개):</strong> PDF, 엑셀, 워드 파일을 던져주면 순식간에 요약하고 핵심을 짚어줍니다.</li>
           <li><strong>압도적인 한국어 처리:</strong> 번역기 느낌이 전혀 없는, 사람보다 더 자연스러운 한국어 문장을 구사합니다.</li>
           <li><strong>아티팩트(Artifacts) 지원:</strong> 코드 작성 시 실시간으로 화면 우측에 웹사이트나 코드를 미리보기로 띄워줍니다.</li>
@@ -90,7 +90,7 @@ export default function ClaudePcDownload() {
                 <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
               </span>
             </summary>
-            <p className="mt-4 text-gray-600 leading-relaxed">네, Windows 10 이상 64비트 운영체제라면 모두 정상적으로 설치 및 실행됩니다.</p>
+            <p className="mt-4 text-slate-300 leading-relaxed">네, Windows 10 이상 64비트 운영체제라면 모두 정상적으로 설치 및 실행됩니다.</p>
           </details>
           <details className="group bg-gray-50 p-4 rounded-lg cursor-pointer">
             <summary className="font-semibold text-gray-900 list-none flex justify-between items-center">
@@ -99,7 +99,7 @@ export default function ClaudePcDownload() {
                 <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
               </span>
             </summary>
-            <p className="mt-4 text-gray-600 leading-relaxed">가끔 V3나 알약에서 알 수 없는 파일로 오진하는 경우가 있습니다. 공식 사이트에서 받은 파일이라면 안심하시고 백신의 '예외 설정'에 추가한 뒤 실행하시면 됩니다.</p>
+            <p className="mt-4 text-slate-300 leading-relaxed">가끔 V3나 알약에서 알 수 없는 파일로 오진하는 경우가 있습니다. 공식 사이트에서 받은 파일이라면 안심하시고 백신의 '예외 설정'에 추가한 뒤 실행하시면 됩니다.</p>
           </details>
         </div>
       </section>

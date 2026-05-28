@@ -30,8 +30,8 @@ export default function CapcutPcDownload() {
         </div>
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">CapCut (캡컷) PC버전</h1>
-          <p className="text-lg text-gray-600 mb-4">개발사: Bytedance | 카테고리: 동영상 편집 | 라이선스: 무료(Freemium)</p>
-          <div className="flex gap-4 text-sm text-gray-500">
+          <p className="text-lg text-slate-300 mb-4">개발사: Bytedance | 카테고리: 동영상 편집 | 라이선스: 무료(Freemium)</p>
+          <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.7 (89,000+ 리뷰)</span>
             <span>⬇️ 1,000만+ 다운로드</span>
           </div>
@@ -43,7 +43,7 @@ export default function CapcutPcDownload() {
 
       <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">무료 영상편집 툴 1위 다운로드</h2>
-        <p className="text-gray-600 mb-8">무거운 프리미어 프로 대신, 가볍고 템플릿이 쏟아지는 캡컷을 설치하세요.</p>
+        <p className="text-slate-300 mb-8">무거운 프리미어 프로 대신, 가볍고 템플릿이 쏟아지는 캡컷을 설치하세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://www.capcut.com/ko-kr/tools/desktop-video-editor" target="_blank" rel="nofollow noopener" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
@@ -63,10 +63,10 @@ export default function CapcutPcDownload() {
 
       <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">쇼츠, 릴스 편집은 무조건 캡컷 PC버전</h2>
-        <p className="text-gray-700 leading-relaxed mb-6">스마트폰으로 편집하다가 손가락이 아프셨나요? 캡컷 PC버전은 넓은 화면에서 마우스와 키보드로 훨씬 빠르고 정교하게 숏폼 영상을 편집할 수 있게 해줍니다.</p>
+        <p className="text-slate-300 leading-relaxed mb-6">스마트폰으로 편집하다가 손가락이 아프셨나요? 캡컷 PC버전은 넓은 화면에서 마우스와 키보드로 훨씬 빠르고 정교하게 숏폼 영상을 편집할 수 있게 해줍니다.</p>
         
-        <h3 className="text-xl font-bold text-gray-900 mb-4">✨ 왜 캡컷을 써야 할까요?</h3>
-        <ul className="space-y-3 mb-8 text-gray-700">
+        <h3 className="text-xl font-bold text-white mb-4">✨ 왜 캡컷을 써야 할까요?</h3>
+        <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>자동 자막 (Auto Captions):</strong> 사람의 목소리를 인식해서 단 1초 만에 영상 자막을 자동으로 깔아줍니다. (유튜버 필수 기능)</li>
           <li><strong>수만 개의 무료 효과음과 트랜지션:</strong> 저작권 걱정 없이 틱톡 최신 유행 음악과 화려한 화면 전환 효과를 마음껏 쓸 수 있습니다.</li>
           <li><strong>가벼운 구동:</strong> 프리미어 프로처럼 렉이 걸리지 않으며, 사양이 낮은 일반 사무용 노트북에서도 원활하게 돌아갑니다.</li>

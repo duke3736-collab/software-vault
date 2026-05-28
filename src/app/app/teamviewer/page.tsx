@@ -34,8 +34,8 @@ export default function TeamViewerDownload() {
         <div className="flex-1">
           <div className="inline-block bg-blue-100 text-blue-600 text-xs font-bold px-3 py-1 rounded-full mb-3">압도적 1위 원격 제어</div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">팀뷰어 (TeamViewer)</h1>
-          <p className="text-lg text-gray-600 mb-4">개발사: TeamViewer | 카테고리: 원격 제어 | 라이선스: 무료 (개인용)</p>
-          <div className="flex gap-4 text-sm text-gray-500">
+          <p className="text-lg text-slate-300 mb-4">개발사: TeamViewer | 카테고리: 원격 제어 | 라이선스: 무료 (개인용)</p>
+          <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.7 (가장 유명한 원격 툴)</span>
             <span>⬇️ 20억+ 다운로드</span>
           </div>
@@ -47,7 +47,7 @@ export default function TeamViewerDownload() {
 
       <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">전 세계 표준 원격 제어 소프트웨어</h2>
-        <p className="text-gray-600 mb-8">집에 있는 컴퓨터를 회사에서, 혹은 스마트폰으로 언제든지 제어할 수 있는 가장 강력한 프로그램을 다운받으세요.</p>
+        <p className="text-slate-300 mb-8">집에 있는 컴퓨터를 회사에서, 혹은 스마트폰으로 언제든지 제어할 수 있는 가장 강력한 프로그램을 다운받으세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://www.teamviewer.com/ko/download/windows/" target="_blank" rel="nofollow noopener" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
@@ -63,10 +63,10 @@ export default function TeamViewerDownload() {
 
       <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">안전하고 강력한 기능</h2>
-        <p className="text-gray-700 leading-relaxed mb-6">팀뷰어는 256비트 AES 암호화와 이중 인증을 지원하여 가장 안전한 원격 제어 환경을 제공합니다. <strong>파일 전송, 화면 녹화, 모바일 접속</strong> 등 막강한 기능을 개인 사용자에게는 무료로 제공하고 있습니다.</p>
+        <p className="text-slate-300 leading-relaxed mb-6">팀뷰어는 256비트 AES 암호화와 이중 인증을 지원하여 가장 안전한 원격 제어 환경을 제공합니다. <strong>파일 전송, 화면 녹화, 모바일 접속</strong> 등 막강한 기능을 개인 사용자에게는 무료로 제공하고 있습니다.</p>
         
-        <h3 className="text-xl font-bold text-gray-900 mb-4">🔑 상업적 사용 의심 오류 해결 팁</h3>
-        <ul className="space-y-3 mb-8 text-gray-700">
+        <h3 className="text-xl font-bold text-white mb-4">🔑 상업적 사용 의심 오류 해결 팁</h3>
+        <ul className="space-y-3 mb-8 text-slate-300">
           <li>개인용으로 쓰더라도 가끔 <code>상업적 사용이 의심됩니다</code>라며 접속이 끊기는 경우가 있습니다.</li>
           <li>이때는 팀뷰어 홈페이지의 고객지원 폼을 통해 <strong>'개인 용도 사용 승인(Reset Management)'</strong>을 요청하면 1~2일 내로 다시 무료로 풀리게 됩니다.</li>
           <li>너무 급한 경우, 앞서 추천해 드린 <code>애니데스크(AnyDesk)</code>를 대체재로 사용하시는 것도 좋은 방법입니다.</li>

@@ -34,8 +34,8 @@ export default function ThreeDPNetDownload() {
         <div className="flex-1">
           <div className="inline-block bg-green-100 text-green-600 text-xs font-bold px-3 py-1 rounded-full mb-3">포맷 직후 1순위 필수템</div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">3DP Net / 3DP Chip</h1>
-          <p className="text-lg text-gray-600 mb-4">개발사: 3DP | 카테고리: 하드웨어 드라이버 | 라이선스: 무료</p>
-          <div className="flex gap-4 text-sm text-gray-500">
+          <p className="text-lg text-slate-300 mb-4">개발사: 3DP | 카테고리: 하드웨어 드라이버 | 라이선스: 무료</p>
+          <div className="flex gap-4 text-sm text-slate-400">
             <span>⭐️ 4.9 (필수 유틸리티)</span>
             <span>⬇️ 2,000만+ 다운로드</span>
           </div>
@@ -47,7 +47,7 @@ export default function ThreeDPNetDownload() {
 
       <section className="bg-blue-50 rounded-3xl p-8 text-center border border-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">인터넷 연결 없는 오프라인 설치 지원</h2>
-        <p className="text-gray-600 mb-8">랜카드를 자동으로 인식하여 오프라인 상태에서도 인터넷을 연결해주는 3DP Net을 먼저 다운받아 USB에 담아두세요.</p>
+        <p className="text-slate-300 mb-8">랜카드를 자동으로 인식하여 오프라인 상태에서도 인터넷을 연결해주는 3DP Net을 먼저 다운받아 USB에 담아두세요.</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://www.3dpchip.com/3dp/net_down_kor.php" target="_blank" rel="nofollow noopener" className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
@@ -67,10 +67,10 @@ export default function ThreeDPNetDownload() {
 
       <section className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 prose prose-blue max-w-none">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">포맷 전 반드시 준비해야 할 파일 1순위</h2>
-        <p className="text-gray-700 leading-relaxed mb-6">윈도우를 포맷하면 가장 흔하게 겪는 패닉이 바로 <strong>'인터넷 연결 안됨'</strong> 현상입니다. 메인보드의 랜(LAN)카드 드라이버가 없기 때문인데요. 인터넷이 안 되니 드라이버를 다운받을 수도 없는 악순환에 빠지게 됩니다.</p>
+        <p className="text-slate-300 leading-relaxed mb-6">윈도우를 포맷하면 가장 흔하게 겪는 패닉이 바로 <strong>'인터넷 연결 안됨'</strong> 현상입니다. 메인보드의 랜(LAN)카드 드라이버가 없기 때문인데요. 인터넷이 안 되니 드라이버를 다운받을 수도 없는 악순환에 빠지게 됩니다.</p>
         
-        <h3 className="text-xl font-bold text-gray-900 mb-4">💡 3DP 시리즈 사용 순서 완벽 가이드</h3>
-        <ul className="space-y-3 mb-8 text-gray-700">
+        <h3 className="text-xl font-bold text-white mb-4">💡 3DP 시리즈 사용 순서 완벽 가이드</h3>
+        <ul className="space-y-3 mb-8 text-slate-300">
           <li><strong>1. 3DP Net 미리 받기:</strong> 윈도우 포맷 전, 혹은 다른 PC나 스마트폰을 이용해 <code>3DP Net</code>을 다운받아 USB 메모리에 복사해 둡니다. (이 프로그램은 용량이 크지만 랜카드 드라이버를 모두 내장하고 있어 오프라인에서 설치 가능합니다.)</li>
           <li><strong>2. 3DP Net 설치 및 인터넷 연결:</strong> 포맷된 PC에 USB를 꽂고 3DP Net을 실행합니다. 화면에 뜨는 느낌표(!) 버튼을 클릭하면 랜카드가 잡히면서 인터넷이 연결됩니다.</li>
           <li><strong>3. 3DP Chip으로 나머지 해결:</strong> 인터넷이 연결되었다면, 이제 용량이 가벼운 <code>3DP Chip</code>을 다운받아 실행합니다. 느낌표가 떠 있는 그래픽 카드, 사운드 카드, 메인보드 칩셋을 하나씩 클릭하여 최신 드라이버로 업데이트하면 완벽하게 포맷 세팅이 끝납니다!</li>
