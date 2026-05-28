@@ -80,7 +80,7 @@ export default function PromotionBanners() {
       
       {/* 5. 쿠팡 파트너스 배너 2 (로지텍 마우스) */}
       <a 
-        href="https://link.coupang.com/a/d7JKqbm5h6"
+        href="https://link.coupang.com/a/d7J0vxQAgK"
         target="_blank" 
         rel="noopener noreferrer"
         className="block bg-blue-50 text-blue-800 border border-blue-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
@@ -101,7 +101,7 @@ export default function PromotionBanners() {
 
       {/* 6. 쿠팡 파트너스 배너 3 (로지텍 키보드) */}
       <a 
-        href="https://link.coupang.com/a/d7JKqbm5h6"
+        href="https://link.coupang.com/a/d7J2O96WUC"
         target="_blank" 
         rel="noopener noreferrer"
         className="block bg-red-50 text-red-800 border border-red-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"
