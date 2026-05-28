@@ -21,7 +21,7 @@ export default function AdSense({ slot, format = 'auto', responsive = true }: Ad
     <div className="w-full flex justify-center my-6 overflow-hidden">
       {/* 구글 애드센스 실제 코드가 들어갈 자리 */}
       <ins
-        className="adsbygoogle bg-gray-50 flex items-center justify-center text-sm text-gray-400 border border-dashed border-gray-200 rounded-lg min-h-[90px] w-full"
+        className="adsbygoogle bg-slate-800/40 flex items-center justify-center text-sm text-slate-500 border border-dashed border-slate-700/50 rounded-lg min-h-[90px] w-full"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-6635245275061755"
         data-ad-slot="3763277922"
