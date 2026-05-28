@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import AdSense from "@/components/AdSense";
 
 export const metadata: Metadata = {
-  title: "다빈치 리졸브 (DaVinci Resolve) 완전 무료버전 다운로드",
   title: "다빈치 리졸브 18 (DaVinci Resolve) 완전 무료버전 다운로드",
   description: "프리미어 프로 대안 1순위! 색보정의 끝판왕이자 워터마크, 시간 제한이 전혀 없는 완벽한 무료 영상 편집기 다빈치 리졸브 다운로드 가이드.",
   icons: {
