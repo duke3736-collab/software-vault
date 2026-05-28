@@ -1,65 +1,116 @@
+import Link from "next/link";
 import Image from "next/image";
+
+const apps = [
+  {
+    id: "claude-pc",
+    name: "Claude (클로드) PC버전",
+    developer: "Anthropic",
+    category: "AI 도구",
+    rating: 4.9,
+    reviews: "1.2만",
+    iconColor: "bg-orange-100",
+    iconText: "C",
+    textColor: "text-orange-600",
+  },
+  {
+    id: "chatgpt-pc",
+    name: "ChatGPT 공식 데스크톱",
+    developer: "OpenAI",
+    category: "AI 도구",
+    rating: 4.8,
+    reviews: "5.4만",
+    iconColor: "bg-green-100",
+    iconText: "G",
+    textColor: "text-green-600",
+  },
+  {
+    id: "capcut-pc",
+    name: "CapCut (캡컷) PC버전",
+    developer: "Bytedance",
+    category: "동영상 편집",
+    rating: 4.7,
+    reviews: "8.9만",
+    iconColor: "bg-black",
+    iconText: "C",
+    textColor: "text-white",
+  },
+  {
+    id: "logitech-g-hub",
+    name: "로지텍 G HUB 구버전 (무한로딩 해결)",
+    developer: "Logitech",
+    category: "유틸리티",
+    rating: 4.8,
+    reviews: "1.5만",
+    iconColor: "bg-blue-100",
+    iconText: "G",
+    textColor: "text-blue-600",
+  },
+  {
+    id: "anysign4pc",
+    name: "AnySign4PC 통합설치 (오류 해결)",
+    developer: "한컴위드",
+    category: "보안",
+    rating: 2.1,
+    reviews: "3.2만",
+    iconColor: "bg-gray-100",
+    iconText: "A",
+    textColor: "text-gray-600",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="space-y-12">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-xl">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">이번 주 필수 추천 소프트웨어</h1>
+          <p className="text-lg text-blue-100 mb-8">안전성이 검증된 공식 최신 버전의 PC 앱을 가장 빠르게 다운로드하세요.</p>
+          <Link href="/app/claude-pc" className="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-50 transition">
+            클로드 PC버전 다운로드 가기
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Trending Apps Grid */}
+      <section>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">실시간 급상승 앱</h2>
+          <button className="text-blue-600 font-medium hover:underline">모두 보기</button>
         </div>
-      </main>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {apps.map((app) => (
+            <Link href={`/app/${app.id}`} key={app.id} className="block group">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div className="flex items-start gap-4">
+                  {/* App Icon Mock */}
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-3xl shadow-sm ${app.iconColor} ${app.textColor}`}>
+                    {app.iconText}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition line-clamp-1">{app.name}</h3>
+                    <p className="text-sm text-gray-500 mb-2">{app.developer}</p>
+                    
+                    <div className="flex items-center gap-3 text-xs text-gray-500">
+                      <span className="flex items-center">
+                        <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        {app.rating}
+                      </span>
+                      <span>리뷰 {app.reviews}</span>
+                      <span className="bg-gray-100 px-2 py-0.5 rounded-full">{app.category}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
