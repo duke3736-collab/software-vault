@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import PromotionBanners from "@/components/PromotionBanners";
+import ShareButton from "@/components/ShareButton";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,9 +29,10 @@ export default function RootLayout({
               <span className="font-semibold text-xl tracking-tight">Software Vault</span>
             </Link>
             <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-              <a href="/" className="hover:text-blue-600 transition text-blue-600">추천 앱</a>
-              <a href="#" className="hover:text-blue-600 transition">PC 유틸리티</a>
-              <a href="#" className="hover:text-blue-600 transition">AI 도구</a>
+              <Link href="/" className="hover:text-blue-600 transition text-blue-600">추천 앱</Link>
+              <a href="https://map.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-500 transition">씨맵(PlayMap)</a>
+              <a href="https://tools.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition">핀인사이트</a>
+              <a href="https://saju.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-fuchsia-500 transition">미스틱사주</a>
             </nav>
             <div className="md:hidden flex items-center">
               <button className="text-gray-500">
@@ -42,7 +45,9 @@ export default function RootLayout({
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">
           {children}
+          <PromotionBanners />
         </main>
+        <ShareButton />
         <footer className="bg-white border-t border-gray-200 mt-12 py-10">
           <div className="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
             <p>© 2026 Software Vault. 모든 소프트웨어의 저작권은 해당 개발사에게 있습니다.</p>
