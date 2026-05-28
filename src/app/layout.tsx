@@ -28,6 +28,19 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        {/* Google Analytics (GA4) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
       </head>
       <body className={`${inter.className} bg-[#090E17] text-slate-200 min-h-screen flex flex-col`}>
         <Header />
