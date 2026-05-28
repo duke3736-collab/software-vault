@@ -24,7 +24,7 @@ export default function AdSense({ slot, format = 'auto', responsive = true }: Ad
         className="adsbygoogle bg-gray-50 flex items-center justify-center text-sm text-gray-400 border border-dashed border-gray-200 rounded-lg min-h-[90px] w-full"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-6635245275061755"
-        data-ad-slot={slot}
+        data-ad-slot="3763277922"
         data-ad-format={format}
         data-full-width-responsive={responsive ? "true" : "false"}
       >
