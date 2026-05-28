@@ -41,7 +41,7 @@ export default function PromotionBanners() {
 
       {/* 3. 미스틱사주 */}
       <a 
-        href="https://saju.weknews.com" 
+        href="https://mystic.weknews.com" 
         target="_blank" 
         rel="noopener noreferrer"
         className="block bg-gradient-to-r from-purple-500 to-fuchsia-600 text-white rounded-2xl p-5 shadow-sm hover:shadow-md transition transform hover:-translate-y-1"

@@ -32,7 +32,7 @@ export default function RootLayout({
               <Link href="/" className="hover:text-blue-600 transition text-blue-600">🔥 추천 앱</Link>
               <a href="https://map.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-500 transition">🏖️ 씨맵(PlayMap)</a>
               <a href="https://tools.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition">📊 핀인사이트</a>
-              <a href="https://saju.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-fuchsia-500 transition">🔮 미스틱사주</a>
+              <a href="https://mystic.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-fuchsia-500 transition">🔮 미스틱사주</a>
             </nav>
             <div className="md:hidden flex items-center">
               <button className="text-gray-500">
