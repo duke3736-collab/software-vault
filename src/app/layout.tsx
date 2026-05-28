@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,12 +20,12 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#f5f5f7] text-gray-900 antialiased`}>
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
           <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-2 cursor-pointer">
+            <Link href="/" className="flex items-center gap-2 cursor-pointer">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
                 S
               </div>
               <span className="font-semibold text-xl tracking-tight">Software Vault</span>
-            </div>
+            </Link>
             <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
               <a href="/" className="hover:text-blue-600 transition text-blue-600">추천 앱</a>
               <a href="#" className="hover:text-blue-600 transition">PC 유틸리티</a>
