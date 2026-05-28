@@ -101,6 +101,39 @@ const apps = [
     iconText: "R",
     textColor: "text-purple-700",
   },
+  {
+    id: "anydesk",
+    name: "애니데스크 (AnyDesk)",
+    developer: "AnyDesk Software",
+    category: "원격 제어",
+    rating: 4.8,
+    reviews: "3.5만",
+    iconColor: "bg-red-100",
+    iconText: "A",
+    textColor: "text-red-600",
+  },
+  {
+    id: "teamviewer",
+    name: "팀뷰어 (TeamViewer)",
+    developer: "TeamViewer",
+    category: "원격 제어",
+    rating: 4.7,
+    reviews: "12만",
+    iconColor: "bg-blue-100",
+    iconText: "T",
+    textColor: "text-blue-600",
+  },
+  {
+    id: "hwp-viewer",
+    name: "한글(HWP) 뷰어 2024",
+    developer: "한글과컴퓨터",
+    category: "오피스",
+    rating: 4.5,
+    reviews: "9.8만",
+    iconColor: "bg-blue-50",
+    iconText: "H",
+    textColor: "text-blue-800",
+  },
 ];
 
 export default function Home() {
@@ -146,7 +179,7 @@ export default function Home() {
                         {app.rating}
                       </span>
                       <span>리뷰 {app.reviews}</span>
-                      <span className="bg-gray-100 px-2 py-0.5 rounded-full">{app.category}</span>
+                      <span className="bg-gray-100 px-2 py-0.5 rounded-full whitespace-nowrap">{app.category}</span>
                     </div>
                   </div>
                 </div>
