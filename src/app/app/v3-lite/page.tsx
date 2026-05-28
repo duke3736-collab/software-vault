@@ -50,7 +50,7 @@ export default function V3LiteDownload() {
         <p className="text-gray-700 leading-relaxed mb-6">무료로 제공되는 대신 윈도우 우측 하단에 수시로 쇼핑몰이나 뉴스 팝업 광고가 뜹니다. 아래 30초 설정만 따라하시면 평생 광고 없이 쾌적하게 쓸 수 있습니다!</p>
         <ul className="space-y-3 mb-8 text-gray-700">
           <li><strong>1단계:</strong> V3 Lite 화면을 열고, 우측 상단의 <strong>[톱니바퀴 (설정)]</strong> 아이콘을 클릭합니다.</li>
-          <li><strong>2단계:</strong> 설정 창 좌측 메뉴에서 <strong>[기타 설정] -> [사용 환경]</strong>으로 들어갑니다.</li>
+          <li><strong>2단계:</strong> 설정 창 좌측 메뉴에서 <strong>[기타 설정] -&gt; [사용 환경]</strong>으로 들어갑니다.</li>
           <li><strong>3단계:</strong> <code>알림 설정</code> 탭을 클릭하고, <strong>[30일간 광고 보지 않기]</strong> 박스에 체크합니다. (이후 매달 한 번씩 클릭해주면 영구 차단 효과가 있습니다.)</li>
           <li><strong>4단계:</strong> <code>스마트 백그라운드 스캔</code> 및 다른 모든 알림 체크박스를 해제해주면 윈도우 우측 하단이 평화로워집니다.</li>
         </ul>

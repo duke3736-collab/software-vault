@@ -49,7 +49,7 @@ export default function KakaotalkDownload() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">직장인을 위한 카카오톡 엑셀(몰컴) 모드 설정법</h2>
         <p className="text-gray-700 leading-relaxed mb-6">회사에서 대놓고 카카오톡을 띄워놓기 눈치 보이시나요? 카카오톡에는 배경과 글씨체를 엑셀 프로그램처럼 바꿔주는 기능이 내장되어 있습니다.</p>
         <ul className="space-y-3 mb-8 text-gray-700">
-          <li><strong>설정 진입:</strong> 왼쪽 하단의 톱니바퀴 -> [설정] 클릭</li>
+          <li><strong>설정 진입:</strong> 왼쪽 하단의 톱니바퀴 -&gt; [설정] 클릭</li>
           <li><strong>화면 탭 이동:</strong> 왼쪽 메뉴에서 [화면] 탭 클릭</li>
           <li><strong>채팅방 스타일 변경:</strong> 엑셀 스타일 박스에 체크하고 투명도를 60% 정도로 조절하면 멀리서 보면 완벽한 엑셀 작업 화면처럼 보입니다!</li>
         </ul>

@@ -51,7 +51,7 @@ export default function DavinciDownload() {
         <p className="text-gray-700 leading-relaxed mb-6">다빈치 리졸브 다운로드 페이지에 들어가면 버튼이 두 개가 있어 헷갈리실 겁니다. <strong>DaVinci Resolve Studio</strong>는 수십만 원짜리 유료 버전이고, 일반 <strong>DaVinci Resolve</strong>가 워터마크 없는 평생 무료 버전입니다.</p>
         <ul className="space-y-3 mb-8 text-gray-700">
           <li><strong>초보자 유튜버에게 충분한가요?</strong> 네! 유튜브 4K 영상 편집, 화려한 자막 작업, 컷편집 모두 유료버전과 동일하게 아무런 제약 없이 100% 무료로 가능합니다.</li>
-          <li><strong>한국어 지원:</strong> 상단 메뉴 <code>DaVinci Resolve -> Preferences -> User -> UI Settings</code>에서 Language를 한국어로 변경하면 완벽한 한글판으로 바뀝니다!</li>
+          <li><strong>한국어 지원:</strong> 상단 메뉴 <code>DaVinci Resolve -&gt; Preferences -&gt; User -&gt; UI Settings</code>에서 Language를 한국어로 변경하면 완벽한 한글판으로 바뀝니다!</li>
         </ul>
       </section>
     </div>

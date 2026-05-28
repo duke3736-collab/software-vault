@@ -49,7 +49,7 @@ export default function ObsStudioDownload() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-0">녹화 화면이 까맣게(블랙스크린) 나오는 오류 해결법</h2>
         <p className="text-gray-700 leading-relaxed mb-6">노트북이나 듀얼 모니터 환경에서 OBS 스튜디오 화면 캡처가 안 되고 까맣게만 나오는 경우가 있습니다. 그래픽카드 충돌 때문인데 1분 만에 고칠 수 있습니다.</p>
         <ul className="space-y-3 mb-8 text-gray-700">
-          <li><strong>윈도우 설정 진입:</strong> 윈도우 [설정] -> [시스템] -> [디스플레이] 하단의 <strong>[그래픽 설정]</strong> 클릭</li>
+          <li><strong>윈도우 설정 진입:</strong> 윈도우 [설정] -&gt; [시스템] -&gt; [디스플레이] 하단의 <strong>[그래픽 설정]</strong> 클릭</li>
           <li><strong>OBS 추가:</strong> 찾아보기 버튼을 눌러 <code>C:\Program Files\obs-studio\bin\64bit\obs64.exe</code> 파일을 선택해 목록에 추가합니다.</li>
           <li><strong>옵션 변경:</strong> 추가된 OBS를 클릭하고 [옵션]을 누른 뒤, <strong>'절전(내장 그래픽)'</strong>으로 변경하고 저장한 뒤 OBS를 껐다 켜면 화면이 정상적으로 나옵니다!</li>
         </ul>
