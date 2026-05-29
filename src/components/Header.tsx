@@ -19,6 +19,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-sm font-medium text-slate-300">
           <Link href="/" className="hover:text-blue-400 transition text-blue-400">🔥 추천 앱</Link>
+          <a href="https://drive.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition">🚗 드라이브 코스</a>
           <a href="https://map.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition">🏖️ 씨맵(PlayMap)</a>
           <a href="https://tools.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition">📊 핀인사이트</a>
           <a href="https://mystic.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-fuchsia-400 transition">🔮 미스틱사주</a>
@@ -48,6 +49,7 @@ export default function Header() {
         <div className="md:hidden border-t border-slate-800 bg-[#0F172A] absolute w-full left-0 top-16 shadow-xl">
           <nav className="flex flex-col px-6 py-4 gap-4 text-sm font-medium text-slate-300">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-blue-400 transition text-blue-400 py-3 border-b border-slate-800">🔥 추천 앱</Link>
+            <a href="https://drive.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition py-3 border-b border-slate-800">🚗 드라이브 코스</a>
             <a href="https://map.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition py-3 border-b border-slate-800">🏖️ 씨맵(PlayMap)</a>
             <a href="https://tools.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition py-3 border-b border-slate-800">📊 핀인사이트</a>
             <a href="https://mystic.weknews.com" target="_blank" rel="noopener noreferrer" className="hover:text-fuchsia-400 transition py-3">🔮 미스틱사주</a>
