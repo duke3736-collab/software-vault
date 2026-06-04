@@ -11,7 +11,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "공식 소프트웨어 다운로드 센터 | 안전한 PC버전 설치",
-  description: "클로드, 챗GPT, 캡컷 등 최신 필수 소프트웨어 PC버전을 가장 안전하고 빠르게 다운로드하세요.",
+  description: "클로드(Claude), 챗GPT(ChatGPT), 캡컷(CapCut) 등 최신 필수 소프트웨어 PC버전을 가장 안전하고 빠르게 다운로드하세요.",
+  keywords: "소프트웨어 다운로드, PC버전 설치, 챗GPT PC, 클로드 PC버전, 캡컷 다운로드, 공식 다운로드, 무료 소프트웨어, Claude 3, ChatGPT 데스크톱",
+  openGraph: {
+    title: "공식 소프트웨어 다운로드 센터",
+    description: "필수 소프트웨어 공식 링크를 한곳에서 쉽고 안전하게 만나보세요.",
+    url: "https://software.weknews.com",
+    siteName: "Software Vault",
+    locale: "ko_KR",
+    type: "website",
+  }
 };
 
 export default function RootLayout({
@@ -41,6 +50,23 @@ export default function RootLayout({
             gtag('config', 'G-HXGF6RRRQT');
           `}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Software Vault - 공식 소프트웨어 다운로드 센터",
+              "url": "https://software.weknews.com",
+              "description": "클로드, 챗GPT, 캡컷 등 필수 소프트웨어 PC버전을 가장 안전하고 빠르게 다운로드하세요.",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://software.weknews.com/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} bg-[#090E17] text-slate-200 min-h-screen flex flex-col`}>
         <Header />
