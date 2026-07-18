@@ -8,7 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'bandicam', 'bandizip', 'canon-scan', 'capcut-pc', 'chatgpt-pc',
     'chrome-offline', 'claude-pc', 'davinci', 'discord', 'hwp-viewer',
     'kakaotalk', 'logitech-g-hub', 'notion', 'obs-studio', 'roblox-fps-unlocker',
-    'teamviewer', 'v3-lite'
+    'teamviewer', 'v3-lite', 'gomrecorder-old', 'ancamera-old', 'picpick',
+    'kalmuri'
   ];
 
   const appUrls = apps.map((app) => ({

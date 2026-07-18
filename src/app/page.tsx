@@ -277,7 +277,52 @@ const apps = [
     iconText: "S",
     textColor: "text-slate-800",
   },
+  {
+    id: "gomrecorder-old",
+    name: "곰녹음기 구버전 (가볍고 광고없음)",
+    developer: "GOM & Company",
+    category: "녹음/오디오",
+    rating: 4.8,
+    reviews: "3.1만",
+    iconColor: "bg-orange-600",
+    iconText: "G",
+    textColor: "text-white",
+  },
+  {
+    id: "ancamera-old",
+    name: "안카메라 구버전 (로그인 없는 무설치)",
+    developer: "ancamera",
+    category: "화면 캡처",
+    rating: 4.7,
+    reviews: "4.2만",
+    iconColor: "bg-blue-500",
+    iconText: "A",
+    textColor: "text-white",
+  },
+  {
+    id: "picpick",
+    name: "픽픽 (PicPick) 올인원 캡처 도구",
+    developer: "NGWIN",
+    category: "화면 캡처",
+    rating: 4.9,
+    reviews: "5.8만",
+    iconColor: "bg-sky-500",
+    iconText: "P",
+    textColor: "text-white",
+  },
+  {
+    id: "kalmuri",
+    name: "칼무리 (Kalmuri) 초경량 무설치 캡처",
+    developer: "길길IT",
+    category: "화면 캡처",
+    rating: 4.9,
+    reviews: "3.7만",
+    iconColor: "bg-yellow-500",
+    iconText: "K",
+    textColor: "text-slate-900",
+  },
 ];
+
 
 export default function Home() {
   return (
