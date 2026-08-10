@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://software.weknews.com';
 
   const apps = [
+    'deepseek-pc', 'potplayer', 'honeyview', 'everything-search', 'ldplayer',
     '3dp-net', 'alcapture-old', 'anydesk', 'anysign4pc', 'autocad-student',
     'bandicam', 'bandizip', 'canon-scan', 'capcut-pc', 'chatgpt-pc',
     'chrome-offline', 'claude-pc', 'davinci', 'discord', 'hwp-viewer',

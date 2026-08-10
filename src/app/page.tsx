@@ -1,6 +1,11 @@
 import Link from "next/link";
 
 const apps = [
+  { id: "deepseek-pc", name: "DeepSeek (딥시크) AI PC버전", developer: "DeepSeek", category: "AI 도구", rating: 4.9, reviews: "8.5만", iconColor: "bg-blue-600", iconText: "D" },
+  { id: "potplayer", name: "팟플레이어 (PotPlayer) 64bit 무광고", developer: "Kakao Corp", category: "동영상 재생", rating: 4.9, reviews: "15만", iconColor: "bg-amber-500", iconText: "P" },
+  { id: "honeyview", name: "꿀뷰 (Honeyview) 초고속 사진뷰어", developer: "Bandisoft", category: "유틸리티", rating: 5.0, reviews: "20만", iconColor: "bg-yellow-500", iconText: "H" },
+  { id: "everything-search", name: "Everything (0.1초 초고속 파일 검색)", developer: "voidtools", category: "생산성", rating: 5.0, reviews: "30만", iconColor: "bg-emerald-600", iconText: "E" },
+  { id: "ldplayer", name: "LD앱플레이어 (LDPlayer 9) 120fps", developer: "XuanZhi", category: "게임 유틸리티", rating: 4.8, reviews: "11만", iconColor: "bg-yellow-600", iconText: "L" },
   { id: "claude-pc", name: "Claude (클로드) PC버전", developer: "Anthropic", category: "AI 도구", rating: 4.9, reviews: "1.2만", iconColor: "bg-orange-500", iconText: "C" },
   { id: "chatgpt-pc", name: "ChatGPT 공식 데스크톱", developer: "OpenAI", category: "AI 도구", rating: 4.8, reviews: "5.4만", iconColor: "bg-emerald-600", iconText: "G" },
   { id: "capcut-pc", name: "CapCut (캡컷) PC버전", developer: "Bytedance", category: "동영상 편집", rating: 4.7, reviews: "8.9만", iconColor: "bg-slate-900", iconText: "C" },
