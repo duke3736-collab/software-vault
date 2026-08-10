@@ -14,6 +14,20 @@ export const metadata: Metadata = {
   title: "Software Vault | 공식 PC 소프트웨어 다운로드 & 커뮤니티",
   description: "클로드(Claude), 챗GPT(ChatGPT), 칼무리, 반디집 등 필수 PC 소프트웨어를 안전하게 다운로드하고 유저들과 자유롭게 정보를 나누세요.",
   keywords: "소프트웨어 다운로드, PC버전 설치, 챗GPT PC, 클로드 PC버전, 캡컷 다운로드, 공식 다운로드, 무료 소프트웨어, 커뮤니티, 자유톡",
+  alternates: {
+    canonical: "https://software.weknews.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "Software Vault - PC 소프트웨어 다운로드 & 커뮤니티",
     description: "필수 소프트웨어 공식 링크를 한곳에서. 유저들의 팁과 오류 해결법도 함께.",
