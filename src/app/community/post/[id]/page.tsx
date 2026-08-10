@@ -4,6 +4,7 @@ import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { getStoredPosts, getPostById, incrementViews, addComment, PostItem } from '@/lib/postsStore';
+import AdSense from '@/components/AdSense';
 
 // 이지데이 사이드바 카테고리
 const EZDAY_NAV_SECTIONS = [
@@ -166,6 +167,9 @@ export default function PostDetailPage({ params }: { params: Promise<{ id: strin
             </div>
           </div>
         </div>
+
+        {/* ── 구글 애드센스 광고 영역 ── */}
+        <AdSense slot="3763277922" />
 
         {/* ── 📌 게시글 본문 ── */}
         <div className="py-4 text-sm md:text-base leading-relaxed text-[#c2c6d6] space-y-6 font-normal">

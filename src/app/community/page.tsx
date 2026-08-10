@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getStoredPosts, savePosts, PostItem } from '@/lib/postsStore';
+import AdSense from '@/components/AdSense';
 
 const APP_CATEGORIES = [
   {
@@ -196,6 +197,9 @@ export default function CommunityPage() {
             </Link>
           </div>
         </div>
+
+        {/* ── 구글 애드센스 광고 영역 ── */}
+        <AdSense slot="3763277922" />
 
         {/* 필터가 '전체'이고 앱도 '전체'일 때 이지데이식 멀티컬럼 허브 */}
         {activeFilter === '전체' && activeApp === '전체' ? (

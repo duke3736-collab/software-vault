@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { getStoredPosts, addPost, PostItem, savePosts } from '@/lib/postsStore';
+import AdSense from '@/components/AdSense';
 
 interface CommunitySectionProps {
   appId: string;
@@ -162,6 +163,11 @@ export default function CommunitySection({ appId, appName }: CommunitySectionPro
             </article>
           ))
         )}
+      </div>
+
+      {/* ── 구글 애드센스 광고 영역 ── */}
+      <div className="px-4 py-1">
+        <AdSense slot="3763277922" />
       </div>
 
       {/* ── 하단 글쓰기 탭 ── */}
