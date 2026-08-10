@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { addPost } from '@/lib/postsStore';
 
@@ -20,21 +20,20 @@ const APPS_LIST = [
   { id: 'general', name: '선택 안함 (일반 커뮤니티)' },
 ];
 
-// 관리자 인증 키 (운영자 전용 비밀키 - 기본: admin)
 const ADMIN_SECRET_KEY = 'admin';
 
-export default function CommunityWritePage() {
+function WriteFormContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState<'자유톡' | '익명톡' | '질문/해결' | '설치 오류' | '육아톡' | '러브톡'>('자유톡');
   const [appId, setAppId] = useState('claude-pc');
   const [content, setContent] = useState('');
 
-  // 🔒 관리자 전용 링크 첨부 관련 상태
-  const [hasCtaLink, setHasCtaLink] = useState(false);
-  const [adminKey, setAdminKey] = useState('');
-  const [isAdminUnlocked, setIsAdminUnlocked] = useState(false);
+  // 🔒 운영자(본인) 전용 상태 - 기본적으로 일반 유저에게는 100% 숨김 처리
+  const [showAdminSection, setShowAdminSection] = useState(false);
+  const [hasCtaLink, setHasCtaLink] = useState(true);
   const [ctaText, setCtaText] = useState('👉 이번주 추천 정보 및 바로가기 확인');
   const [ctaUrl, setCtaUrl] = useState('https://software.weknews.com/app/claude-pc');
 
@@ -45,7 +44,18 @@ export default function CommunityWritePage() {
 
   useEffect(() => {
     generateNickname();
-  }, []);
+
+    // URL에 ?admin=true 또는 ?admin=1이 있거나, 이전에 관리자 인증을 완료한 내 브라우저인 경우에만 관리자 메뉴 표시
+    const isAdminUrl = searchParams.get('admin') === 'true' || searchParams.get('admin') === '1';
+    const isSavedAdmin = typeof window !== 'undefined' && localStorage.getItem('sv_is_admin_owner') === 'true';
+
+    if (isAdminUrl || isSavedAdmin) {
+      setShowAdminSection(true);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('sv_is_admin_owner', 'true');
+      }
+    }
+  }, [searchParams]);
 
   const generateNickname = () => {
     const adj = ADJECTIVES[Math.floor(Math.random() * ADJECTIVES.length)];
@@ -56,36 +66,29 @@ export default function CommunityWritePage() {
     setAvatarColor(color);
   };
 
-  const handleAdminAuth = () => {
-    if (adminKey.trim().toLowerCase() === ADMIN_SECRET_KEY) {
-      setIsAdminUnlocked(true);
-      setHasCtaLink(true);
-      alert('🔒 운영자(관리자) 인증이 완료되었습니다. 강조 링크 첨부 기능이 활성화됩니다.');
-    } else {
-      alert('❌ 비밀키가 일치하지 않습니다. (관리자만 링크를 첨부할 수 있습니다)');
+  // 상단 헤더 더블 클릭 시 관리자 모드 비밀 해제 (비밀키 입력)
+  const handleSecretTrigger = () => {
+    const inputKey = prompt('운영자 비밀키를 입력하세요:');
+    if (inputKey && inputKey.toLowerCase() === ADMIN_SECRET_KEY) {
+      setShowAdminSection(true);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('sv_is_admin_owner', 'true');
+      }
+      alert('✅ 운영자 모드가 활성화되었습니다. 내 브라우저에 강조 링크 첨부 기능이 표시됩니다.');
+    } else if (inputKey) {
+      alert('비밀키가 일치하지 않습니다.');
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) {
-      alert('제목을 입력해주세요.');
-      return;
-    }
-    if (!content.trim()) {
-      alert('본문 내용을 입력해주세요.');
-      return;
-    }
-    if (!password.trim()) {
-      alert('삭제용 비밀번호를 입력해주세요.');
-      return;
-    }
+    if (!title.trim() || !content.trim() || !password.trim()) return;
 
     const selectedApp = APPS_LIST.find(a => a.id === appId);
 
-    // 관리자 인증이 완료된 경우에만 CTA 링크 첨부
-    const finalCtaText = isAdminUnlocked && hasCtaLink && ctaText.trim() ? ctaText.trim() : undefined;
-    const finalCtaUrl = isAdminUnlocked && hasCtaLink && ctaUrl.trim() ? ctaUrl.trim() : undefined;
+    // 관리자(본인) 섹션이 열려있을 때만 CTA 배너 링크 첨부
+    const finalCtaText = showAdminSection && hasCtaLink && ctaText.trim() ? ctaText.trim() : undefined;
+    const finalCtaUrl = showAdminSection && hasCtaLink && ctaUrl.trim() ? ctaUrl.trim() : undefined;
 
     const created = addPost({
       title: title.trim(),
@@ -106,15 +109,26 @@ export default function CommunityWritePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
 
-      {/* 서브 상단 네비게이션 */}
-      <div className="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-6">
+      {/* 서브 상단 네비게이션 (더블 클릭 시 운영자 비밀 해제) */}
+      <div className="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-6 select-none">
         <div className="flex items-center gap-2">
           <Link href="/community" className="text-xs text-slate-400 hover:text-slate-200 transition">
             ← 커뮤니티 목록으로
           </Link>
           <span className="text-slate-600">|</span>
-          <span className="text-sm font-bold text-white">✏️ 새 글 쓰기 (이지데이 스타일)</span>
+          <span
+            onDoubleClick={handleSecretTrigger}
+            title="운영자 모드 활성화 (더블클릭)"
+            className="text-sm font-bold text-white cursor-pointer hover:text-blue-300 transition"
+          >
+            ✏️ 새 글 쓰기
+          </span>
         </div>
+        {showAdminSection && (
+          <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+            👑 운영자 전용 링킹 켜짐
+          </span>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="bg-[#10131a] border border-[#424754]/50 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
@@ -186,74 +200,58 @@ export default function CommunityWritePage() {
           />
         </div>
 
-        {/* 4. 🔒 관리자 전용 바로가기 배너 링크 첨부 섹션 */}
-        <div className="bg-[#1d2027]/70 border border-[#424754]/60 rounded-2xl p-5 space-y-4">
-          <div className="flex items-center justify-between">
-            <label className="text-sm font-bold text-blue-400 flex items-center gap-2">
-              <span>🔒</span> 바로가기 강조 배너 링크 첨부 (운영자/관리자 전용)
-            </label>
-            {isAdminUnlocked && (
-              <span className="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-1 rounded-full font-bold">
-                ✅ 인증 완료
-              </span>
-            )}
-          </div>
-
-          {!isAdminUnlocked ? (
-            <div className="p-4 bg-[#10131a] rounded-xl border border-slate-700/50 space-y-3">
-              <p className="text-xs text-slate-400">
-                무단 광고/스팸 링크를 방지하기 위해 **강조 배너 링크 첨부는 운영자(관리자)만 가능합니다.**
-              </p>
-              <div className="flex gap-2">
+        {/* 4. 👑 운영자(본인) 전용 바로가기 배너 링크 첨부 섹션 - 일반 유저에게는 100% 숨김 */}
+        {showAdminSection && (
+          <div className="bg-[#1d2027]/80 border border-blue-500/40 rounded-2xl p-5 space-y-4 shadow-lg">
+            <div className="flex items-center justify-between">
+              <label className="text-sm font-bold text-blue-400 flex items-center gap-2">
+                <span>👉</span> 강조 바로가기 배너 링크 첨부 (운영자 전용)
+              </label>
+              <label className="relative inline-flex items-center cursor-pointer">
                 <input
-                  type="password"
-                  placeholder="관리자 비밀키 입력 (기본: admin)"
-                  value={adminKey}
-                  onChange={(e) => setAdminKey(e.target.value)}
-                  className="flex-1 bg-[#1d2027] border border-[#424754] text-slate-200 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-blue-500"
+                  type="checkbox"
+                  checked={hasCtaLink}
+                  onChange={(e) => setHasCtaLink(e.target.checked)}
+                  className="sr-only peer"
                 />
-                <button
-                  type="button"
-                  onClick={handleAdminAuth}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2 rounded-xl transition"
-                >
-                  인증하기
-                </button>
-              </div>
+                <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+              </label>
             </div>
-          ) : (
-            <div className="space-y-3 pt-2">
-              <div>
-                <span className="text-xs text-slate-400 block mb-1">배너 버튼 문구 (손가락 이모지와 함께 큼직하게 표시됩니다)</span>
-                <input
-                  type="text"
-                  placeholder="👉 이번주 상승종목 및 목표주가 바로보기"
-                  value={ctaText}
-                  onChange={(e) => setCtaText(e.target.value)}
-                  className="w-full bg-[#10131a] border border-[#424754] text-slate-200 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div>
-                <span className="text-xs text-slate-400 block mb-1">이동할 URL 주소</span>
-                <input
-                  type="url"
-                  placeholder="https://software.weknews.com/app/claude-pc"
-                  value={ctaUrl}
-                  onChange={(e) => setCtaUrl(e.target.value)}
-                  className="w-full bg-[#10131a] border border-[#424754] text-slate-200 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-blue-500 font-mono text-xs"
-                />
-              </div>
 
-              {/* 실시간 이지데이 배너 프리뷰 */}
-              <div className="mt-3 p-3 bg-slate-900/80 rounded-xl border border-slate-700/50">
-                <span className="text-[11px] text-slate-500 block mb-2 font-medium">[이지데이 미리보기]</span>
-                <div className="bg-[#1A2536] hover:bg-[#202E43] text-white border border-blue-500/40 rounded-xl py-3 px-6 text-center font-bold text-sm shadow-md transition">
-                  {ctaText || '👉 바로가기 버튼'}
+            {hasCtaLink && (
+              <div className="space-y-3 pt-2">
+                <div>
+                  <span className="text-xs text-slate-400 block mb-1">배너 버튼 문구 (손가락 이모지와 함께 큼직하게 표시됩니다)</span>
+                  <input
+                    type="text"
+                    placeholder="👉 이번주 상승종목 및 목표주가 바로보기"
+                    value={ctaText}
+                    onChange={(e) => setCtaText(e.target.value)}
+                    className="w-full bg-[#10131a] border border-[#424754] text-slate-200 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+                <div>
+                  <span className="text-xs text-slate-400 block mb-1">이동할 URL 주소</span>
+                  <input
+                    type="url"
+                    placeholder="https://software.weknews.com/app/claude-pc"
+                    value={ctaUrl}
+                    onChange={(e) => setCtaUrl(e.target.value)}
+                    className="w-full bg-[#10131a] border border-[#424754] text-slate-200 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-blue-500 font-mono text-xs"
+                  />
+                </div>
+
+                {/* 실시간 이지데이 배너 프리뷰 */}
+                <div className="mt-3 p-3 bg-slate-900/80 rounded-xl border border-slate-700/50">
+                  <span className="text-[11px] text-slate-500 block mb-2 font-medium">[이지데이 미리보기]</span>
+                  <div className="bg-[#1A2536] hover:bg-[#202E43] text-white border border-blue-500/40 rounded-xl py-3 px-6 text-center font-bold text-sm shadow-md transition">
+                    {ctaText || '👉 바로가기 버튼'}
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
 
         {/* 5. 작성자 및 비밀번호 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-700/40 pt-4">
@@ -329,5 +327,13 @@ export default function CommunityWritePage() {
 
       </form>
     </div>
+  );
+}
+
+export default function CommunityWritePage() {
+  return (
+    <Suspense fallback={<div className="text-center py-12 text-slate-400">로딩 중...</div>}>
+      <WriteFormContent />
+    </Suspense>
   );
 }
