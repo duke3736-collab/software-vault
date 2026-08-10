@@ -5,6 +5,7 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import PromotionBanners from "@/components/PromotionBanners";
 import ShareButton from "@/components/ShareButton";
+import WordPressSection from "@/components/WordPressSection";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -73,6 +74,7 @@ export default function RootLayout({
         <main className="flex-1 py-6">
           {children}
           <ShareButton />
+          <WordPressSection />
           <PromotionBanners />
         </main>
         <footer style={{ backgroundColor: '#0b0e15', borderTop: '1px solid rgba(66,71,84,0.4)' }} className="mt-16 py-10">
