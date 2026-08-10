@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
 import Header from "@/components/Header";
@@ -7,15 +7,15 @@ import PromotionBanners from "@/components/PromotionBanners";
 import ShareButton from "@/components/ShareButton";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const hanken = Hanken_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "공식 소프트웨어 다운로드 센터 | 안전한 PC버전 설치",
-  description: "클로드(Claude), 챗GPT(ChatGPT), 캡컷(CapCut) 등 최신 필수 소프트웨어 PC버전을 가장 안전하고 빠르게 다운로드하세요.",
-  keywords: "소프트웨어 다운로드, PC버전 설치, 챗GPT PC, 클로드 PC버전, 캡컷 다운로드, 공식 다운로드, 무료 소프트웨어, Claude 3, ChatGPT 데스크톱",
+  title: "Software Vault | 공식 PC 소프트웨어 다운로드 & 커뮤니티",
+  description: "클로드(Claude), 챗GPT(ChatGPT), 칼무리, 반디집 등 필수 PC 소프트웨어를 안전하게 다운로드하고 유저들과 자유롭게 정보를 나누세요.",
+  keywords: "소프트웨어 다운로드, PC버전 설치, 챗GPT PC, 클로드 PC버전, 캡컷 다운로드, 공식 다운로드, 무료 소프트웨어, 커뮤니티, 자유톡",
   openGraph: {
-    title: "공식 소프트웨어 다운로드 센터",
-    description: "필수 소프트웨어 공식 링크를 한곳에서 쉽고 안전하게 만나보세요.",
+    title: "Software Vault - PC 소프트웨어 다운로드 & 커뮤니티",
+    description: "필수 소프트웨어 공식 링크를 한곳에서. 유저들의 팁과 오류 해결법도 함께.",
     url: "https://software.weknews.com",
     siteName: "Software Vault",
     locale: "ko_KR",
@@ -68,17 +68,22 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-[#090E17] text-slate-200 min-h-screen flex flex-col`}>
+      <body className={`${hanken.className} min-h-screen flex flex-col`} style={{ backgroundColor: '#090E17', color: '#e1e2ec' }}>
         <Header />
-        <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">
+        <main className="flex-1 py-6">
           {children}
           <ShareButton />
           <PromotionBanners />
         </main>
-        <footer className="bg-[#090E17] border-t border-slate-800 mt-12 py-10">
-          <div className="max-w-5xl mx-auto px-4 text-center text-sm text-slate-500">
-            <p>© 2026 Software Vault. 모든 소프트웨어의 저작권은 해당 개발사에게 있습니다.</p>
-            <p className="mt-2">본 사이트는 공식 홈페이지가 아니며, 안전하게 검증된 공식 다운로드 링크만을 중개합니다.</p>
+        <footer style={{ backgroundColor: '#0b0e15', borderTop: '1px solid rgba(66,71,84,0.4)' }} className="mt-16 py-10">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="text-center md:text-left">
+                <p className="font-bold text-[#e1e2ec] mb-1">Software Vault</p>
+                <p className="text-sm text-[#8c909f]">© 2026 Software Vault. 모든 소프트웨어의 저작권은 해당 개발사에게 있습니다.</p>
+              </div>
+              <p className="text-xs text-[#8c909f]">본 사이트는 공식 홈페이지가 아니며, 안전하게 검증된 공식 다운로드 링크만을 중개합니다.</p>
+            </div>
           </div>
         </footer>
       </body>

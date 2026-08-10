@@ -1,19 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ── Stitch MCP 생성 디자인 시스템 토큰 ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #090E17;
+  --color-surface: #10131a;
+  --color-surface-container: #1d2027;
+  --color-surface-container-high: #272a31;
+  --color-surface-container-highest: #32353c;
+  --color-surface-bright: #363941;
+  --color-on-surface: #e1e2ec;
+  --color-on-surface-variant: #c2c6d6;
+  --color-primary: #adc6ff;
+  --color-primary-container: #4d8eff;
+  --color-outline: #8c909f;
+  --color-outline-variant: #424754;
+  --color-tertiary: #ffb786;
+  --color-error: #ffb4ab;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: 'Hanken Grotesk', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Stitch 디자인 시스템 기반 유틸리티 ── */
+
+/* 히어로 그라데이션 */
+.hero-gradient {
+  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 60%, #1e1b4b 100%);
+}
+
+/* 블루 글로우 이펙트 (Vault 특유의 발광 효과) */
+.blue-glow {
+  box-shadow: 0 0 60px 10px rgba(59, 130, 246, 0.12);
+}
+
+/* 앱 카드 호버 효과 */
+.app-card {
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.app-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+}
+
+/* 커뮤니티 피드 아이템 */
+.feed-item {
+  transition: background-color 150ms ease;
+}
+.feed-item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+.feed-item:hover .feed-title {
+  color: #adc6ff;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #10131a;
+}
+::-webkit-scrollbar-thumb {
+  background: #32353c;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #424754;
 }

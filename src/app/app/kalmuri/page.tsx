@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdSense from "@/components/AdSense";
+import CommunitySection from "@/components/CommunitySection";
 
 export const metadata: Metadata = {
   title: "칼무리 (Kalmuri) 다운로드 | 초경량 무설치 무료 캡처 프로그램",
@@ -87,6 +88,9 @@ export default function KalmuriDownload() {
           <li><strong>연속 캡처 기능:</strong> 캡처 시마다 경고음이나 저장 확인 창 없이 지정된 경로에 순차적으로 파일명을 자동(예: 0001, 0002...) 생성하여 동영상 프레임 저장하듯 연속 촬영할 수 있습니다.</li>
         </ul>
       </section>
+
+      {/* 실시간 익명 톡 커뮤니티 영역 */}
+      <CommunitySection appId="kalmuri" appName="칼무리" />
     </div>
   );
 }

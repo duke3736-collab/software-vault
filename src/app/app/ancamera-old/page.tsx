@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdSense from "@/components/AdSense";
+import CommunitySection from "@/components/CommunitySection";
 
 export const metadata: Metadata = {
   title: "안카메라 구버전 무료 다운로드 (로그인 없는 무설치 버전)",
@@ -86,6 +87,8 @@ export default function AncameraOldDownload() {
           <li><strong>2. 호환성 설정 변경:</strong> 실행 파일 우클릭 -&gt; [속성] -&gt; [호환성] 탭 -&gt; <strong>&apos;이 프로그램을 실행할 호환 모드&apos; 체크 후 Windows 7 선택</strong> 및 하단의 <strong>&apos;관리자 권한으로 이 프로그램 실행&apos;</strong> 체크 후 적용</li>
         </ul>
       </section>
+
+      <CommunitySection appId="ancamera-old" appName="안카메라 구버전" />
     </div>
   );
 }

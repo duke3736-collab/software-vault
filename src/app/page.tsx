@@ -1,400 +1,193 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const apps = [
-  {
-    id: "claude-pc",
-    name: "Claude (클로드) PC버전",
-    developer: "Anthropic",
-    category: "AI 도구",
-    rating: 4.9,
-    reviews: "1.2만",
-    iconColor: "bg-orange-100",
-    iconText: "C",
-    textColor: "text-orange-600",
-  },
-  {
-    id: "chatgpt-pc",
-    name: "ChatGPT 공식 데스크톱",
-    developer: "OpenAI",
-    category: "AI 도구",
-    rating: 4.8,
-    reviews: "5.4만",
-    iconColor: "bg-green-100",
-    iconText: "G",
-    textColor: "text-green-600",
-  },
-  {
-    id: "capcut-pc",
-    name: "CapCut (캡컷) PC버전",
-    developer: "Bytedance",
-    category: "동영상 편집",
-    rating: 4.7,
-    reviews: "8.9만",
-    iconColor: "bg-black",
-    iconText: "C",
-    textColor: "text-white",
-  },
-  {
-    id: "logitech-g-hub",
-    name: "로지텍 G HUB 구버전 (무한로딩 해결)",
-    developer: "Logitech",
-    category: "유틸리티",
-    rating: 4.8,
-    reviews: "1.5만",
-    iconColor: "bg-blue-100",
-    iconText: "G",
-    textColor: "text-blue-600",
-  },
-  {
-    id: "anysign4pc",
-    name: "AnySign4PC 통합설치 (오류 해결)",
-    developer: "한컴위드",
-    category: "보안",
-    rating: 2.1,
-    reviews: "3.2만",
-    iconColor: "bg-gray-100",
-    iconText: "A",
-    textColor: "text-gray-600",
-  },
-  {
-    id: "3dp-net",
-    name: "3DP Net (랜카드/포맷 필수)",
-    developer: "3DP",
-    category: "유틸리티",
-    rating: 4.9,
-    reviews: "2.1만",
-    iconColor: "bg-green-100",
-    iconText: "3",
-    textColor: "text-green-600",
-  },
-  {
-    id: "canon-scan",
-    name: "캐논 복합기 스캔 유틸리티",
-    developer: "Canon",
-    category: "오피스",
-    rating: 4.7,
-    reviews: "1.1만",
-    iconColor: "bg-red-100",
-    iconText: "C",
-    textColor: "text-red-600",
-  },
-  {
-    id: "alcapture-old",
-    name: "알캡처 구버전 (광고없음)",
-    developer: "ESTsoft",
-    category: "유틸리티",
-    rating: 4.9,
-    reviews: "4.5만",
-    iconColor: "bg-teal-100",
-    iconText: "A",
-    textColor: "text-teal-700",
-  },
-  {
-    id: "roblox-fps-unlocker",
-    name: "로블록스 FPS 언락커",
-    developer: "axstin",
-    category: "게임 애드온",
-    rating: 4.9,
-    reviews: "8.2만",
-    iconColor: "bg-purple-100",
-    iconText: "R",
-    textColor: "text-purple-700",
-  },
-  {
-    id: "anydesk",
-    name: "애니데스크 (AnyDesk)",
-    developer: "AnyDesk Software",
-    category: "원격 제어",
-    rating: 4.8,
-    reviews: "3.5만",
-    iconColor: "bg-red-100",
-    iconText: "A",
-    textColor: "text-red-600",
-  },
-  {
-    id: "teamviewer",
-    name: "팀뷰어 (TeamViewer)",
-    developer: "TeamViewer",
-    category: "원격 제어",
-    rating: 4.7,
-    reviews: "12만",
-    iconColor: "bg-blue-100",
-    iconText: "T",
-    textColor: "text-blue-600",
-  },
-  {
-    id: "hwp-viewer",
-    name: "한글(HWP) 뷰어 2024",
-    developer: "한글과컴퓨터",
-    category: "오피스",
-    rating: 4.5,
-    reviews: "9.8만",
-    iconColor: "bg-blue-50",
-    iconText: "H",
-    textColor: "text-blue-800",
-  },
-  {
-    id: "notion",
-    name: "노션 (Notion) PC버전",
-    developer: "Notion Labs",
-    category: "생산성",
-    rating: 4.9,
-    reviews: "5.1만",
-    iconColor: "bg-gray-100",
-    iconText: "N",
-    textColor: "text-gray-900",
-  },
-  {
-    id: "bandizip",
-    name: "반디집 (초고속 압축)",
-    developer: "Bandisoft",
-    category: "유틸리티",
-    rating: 5.0,
-    reviews: "6.2만",
-    iconColor: "bg-blue-100",
-    iconText: "B",
-    textColor: "text-blue-700",
-  },
-  {
-    id: "v3-lite",
-    name: "안랩 V3 Lite (광고제거법)",
-    developer: "AhnLab",
-    category: "보안",
-    rating: 4.7,
-    reviews: "4.8만",
-    iconColor: "bg-green-100",
-    iconText: "V",
-    textColor: "text-green-700",
-  },
-  {
-    id: "davinci",
-    name: "다빈치 리졸브 18 (무료)",
-    developer: "Blackmagic Design",
-    category: "동영상 편집",
-    rating: 4.9,
-    reviews: "3.9만",
-    iconColor: "bg-purple-100",
-    iconText: "D",
-    textColor: "text-purple-700",
-  },
-  {
-    id: "obs-studio",
-    name: "OBS 스튜디오",
-    developer: "OBS Project",
-    category: "방송/녹화",
-    rating: 4.9,
-    reviews: "8.5만",
-    iconColor: "bg-gray-200",
-    iconText: "O",
-    textColor: "text-gray-800",
-  },
-  {
-    id: "autocad-student",
-    name: "오토캐드 학생용 (3년 무료)",
-    developer: "Autodesk",
-    category: "설계",
-    rating: 4.8,
-    reviews: "2.3만",
-    iconColor: "bg-red-100",
-    iconText: "A",
-    textColor: "text-red-700",
-  },
-  {
-    id: "kakaotalk",
-    name: "카카오톡 PC버전 (몰컴모드)",
-    developer: "Kakao Corp",
-    category: "메신저",
-    rating: 4.8,
-    reviews: "15만",
-    iconColor: "bg-yellow-100",
-    iconText: "K",
-    textColor: "text-yellow-800",
-  },
-  {
-    id: "discord",
-    name: "디스코드 (마이크 오류해결)",
-    developer: "Discord Inc.",
-    category: "메신저",
-    rating: 4.9,
-    reviews: "11만",
-    iconColor: "bg-indigo-100",
-    iconText: "D",
-    textColor: "text-indigo-700",
-  },
-  {
-    id: "bandicam",
-    name: "반디캠 (무료버전 제약)",
-    developer: "Bandicam",
-    category: "화면 녹화",
-    rating: 4.7,
-    reviews: "5.5만",
-    iconColor: "bg-red-100",
-    iconText: "B",
-    textColor: "text-red-600",
-  },
-  {
-    id: "chrome-offline",
-    name: "크롬 오프라인 설치파일",
-    developer: "Google",
-    category: "브라우저",
-    rating: 4.9,
-    reviews: "9.2만",
-    iconColor: "bg-yellow-100",
-    iconText: "C",
-    textColor: "text-yellow-700",
-  },
-  {
-    id: "telegram-pc",
-    name: "텔레그램 (Telegram) PC버전",
-    developer: "Telegram FZ-LLC",
-    category: "메신저",
-    rating: 4.8,
-    reviews: "8.1만",
-    iconColor: "bg-sky-100",
-    iconText: "T",
-    textColor: "text-sky-600",
-  },
-  {
-    id: "spotify-pc",
-    name: "스포티파이 (Spotify)",
-    developer: "Spotify AB",
-    category: "음악",
-    rating: 4.9,
-    reviews: "9.5만",
-    iconColor: "bg-green-100",
-    iconText: "S",
-    textColor: "text-green-600",
-  },
-  {
-    id: "steam-client",
-    name: "스팀 (Steam) 클라이언트",
-    developer: "Valve Corporation",
-    category: "게임 플랫폼",
-    rating: 4.9,
-    reviews: "20만",
-    iconColor: "bg-slate-200",
-    iconText: "S",
-    textColor: "text-slate-800",
-  },
-  {
-    id: "gomrecorder-old",
-    name: "곰녹음기 구버전 (가볍고 광고없음)",
-    developer: "GOM & Company",
-    category: "녹음/오디오",
-    rating: 4.8,
-    reviews: "3.1만",
-    iconColor: "bg-orange-600",
-    iconText: "G",
-    textColor: "text-white",
-  },
-  {
-    id: "ancamera-old",
-    name: "안카메라 구버전 (로그인 없는 무설치)",
-    developer: "ancamera",
-    category: "화면 캡처",
-    rating: 4.7,
-    reviews: "4.2만",
-    iconColor: "bg-blue-500",
-    iconText: "A",
-    textColor: "text-white",
-  },
-  {
-    id: "picpick",
-    name: "픽픽 (PicPick) 올인원 캡처 도구",
-    developer: "NGWIN",
-    category: "화면 캡처",
-    rating: 4.9,
-    reviews: "5.8만",
-    iconColor: "bg-sky-500",
-    iconText: "P",
-    textColor: "text-white",
-  },
-  {
-    id: "kalmuri",
-    name: "칼무리 (Kalmuri) 초경량 무설치 캡처",
-    developer: "길길IT",
-    category: "화면 캡처",
-    rating: 4.9,
-    reviews: "3.7만",
-    iconColor: "bg-yellow-500",
-    iconText: "K",
-    textColor: "text-slate-900",
-  },
+  { id: "claude-pc", name: "Claude (클로드) PC버전", developer: "Anthropic", category: "AI 도구", rating: 4.9, reviews: "1.2만", iconColor: "bg-orange-500", iconText: "C" },
+  { id: "chatgpt-pc", name: "ChatGPT 공식 데스크톱", developer: "OpenAI", category: "AI 도구", rating: 4.8, reviews: "5.4만", iconColor: "bg-emerald-600", iconText: "G" },
+  { id: "capcut-pc", name: "CapCut (캡컷) PC버전", developer: "Bytedance", category: "동영상 편집", rating: 4.7, reviews: "8.9만", iconColor: "bg-slate-900", iconText: "C" },
+  { id: "logitech-g-hub", name: "로지텍 G HUB 구버전 (무한로딩 해결)", developer: "Logitech", category: "유틸리티", rating: 4.8, reviews: "1.5만", iconColor: "bg-blue-600", iconText: "G" },
+  { id: "anysign4pc", name: "AnySign4PC 통합설치 (오류 해결)", developer: "한컴위드", category: "보안", rating: 2.1, reviews: "3.2만", iconColor: "bg-slate-600", iconText: "A" },
+  { id: "3dp-net", name: "3DP Net (랜카드/포맷 필수)", developer: "3DP", category: "유틸리티", rating: 4.9, reviews: "2.1만", iconColor: "bg-green-600", iconText: "3" },
+  { id: "canon-scan", name: "캐논 복합기 스캔 유틸리티", developer: "Canon", category: "오피스", rating: 4.7, reviews: "1.1만", iconColor: "bg-red-600", iconText: "C" },
+  { id: "alcapture-old", name: "알캡처 구버전 (광고없음)", developer: "ESTsoft", category: "유틸리티", rating: 4.9, reviews: "4.5만", iconColor: "bg-teal-600", iconText: "A" },
+  { id: "roblox-fps-unlocker", name: "로블록스 FPS 언락커", developer: "axstin", category: "게임 애드온", rating: 4.9, reviews: "8.2만", iconColor: "bg-purple-600", iconText: "R" },
+  { id: "anydesk", name: "애니데스크 (AnyDesk)", developer: "AnyDesk Software", category: "원격 제어", rating: 4.8, reviews: "3.5만", iconColor: "bg-red-600", iconText: "A" },
+  { id: "teamviewer", name: "팀뷰어 (TeamViewer)", developer: "TeamViewer", category: "원격 제어", rating: 4.7, reviews: "12만", iconColor: "bg-blue-700", iconText: "T" },
+  { id: "hwp-viewer", name: "한글(HWP) 뷰어 2024", developer: "한글과컴퓨터", category: "오피스", rating: 4.5, reviews: "9.8만", iconColor: "bg-blue-800", iconText: "H" },
+  { id: "notion", name: "노션 (Notion) PC버전", developer: "Notion Labs", category: "생산성", rating: 4.9, reviews: "5.1만", iconColor: "bg-stone-700", iconText: "N" },
+  { id: "bandizip", name: "반디집 (초고속 압축)", developer: "Bandisoft", category: "유틸리티", rating: 5.0, reviews: "6.2만", iconColor: "bg-blue-600", iconText: "B" },
+  { id: "v3-lite", name: "안랩 V3 Lite (광고제거법)", developer: "AhnLab", category: "보안", rating: 4.7, reviews: "4.8만", iconColor: "bg-green-700", iconText: "V" },
+  { id: "davinci", name: "다빈치 리졸브 18 (무료)", developer: "Blackmagic Design", category: "동영상 편집", rating: 4.9, reviews: "3.9만", iconColor: "bg-purple-700", iconText: "D" },
+  { id: "obs-studio", name: "OBS 스튜디오", developer: "OBS Project", category: "방송/녹화", rating: 4.9, reviews: "8.5만", iconColor: "bg-slate-700", iconText: "O" },
+  { id: "autocad-student", name: "오토캐드 학생용 (3년 무료)", developer: "Autodesk", category: "설계", rating: 4.8, reviews: "2.3만", iconColor: "bg-red-700", iconText: "A" },
+  { id: "kakaotalk", name: "카카오톡 PC버전 (몰컴모드)", developer: "Kakao Corp", category: "메신저", rating: 4.8, reviews: "15만", iconColor: "bg-yellow-500", iconText: "K" },
+  { id: "discord", name: "디스코드 (마이크 오류해결)", developer: "Discord Inc.", category: "메신저", rating: 4.9, reviews: "11만", iconColor: "bg-indigo-600", iconText: "D" },
+  { id: "bandicam", name: "반디캠 (무료버전 제약)", developer: "Bandicam", category: "화면 녹화", rating: 4.7, reviews: "5.5만", iconColor: "bg-red-600", iconText: "B" },
+  { id: "chrome-offline", name: "크롬 오프라인 설치파일", developer: "Google", category: "브라우저", rating: 4.9, reviews: "9.2만", iconColor: "bg-yellow-500", iconText: "C" },
+  { id: "ancamera-old", name: "안카메라 구버전 (무설치)", developer: "ancamera", category: "화면 캡처", rating: 4.7, reviews: "4.2만", iconColor: "bg-blue-500", iconText: "A" },
+  { id: "picpick", name: "픽픽 (PicPick) 올인원 캡처", developer: "NGWIN", category: "화면 캡처", rating: 4.9, reviews: "5.8만", iconColor: "bg-sky-500", iconText: "P" },
+  { id: "kalmuri", name: "칼무리 (Kalmuri) 초경량 캡처", developer: "길길IT", category: "화면 캡처", rating: 4.9, reviews: "3.7만", iconColor: "bg-yellow-500", iconText: "K" },
 ];
 
+// 커뮤니티 데모 피드 데이터
+const COMMUNITY_FEEDS = {
+  free: [
+    { avatar: "칼", avatarColor: "bg-violet-600", text: "칼무리 진짜 가볍고 최고임!", time: "2분 전" },
+    { avatar: "행", avatarColor: "bg-blue-600", text: "이번 업데이트 대박이네요", time: "12분 전" },
+    { avatar: "밴", avatarColor: "bg-emerald-600", text: "반디집 7zip보다 훨씬 편함", time: "25분 전" },
+    { avatar: "디", avatarColor: "bg-indigo-600", text: "디스코드 마이크 오류 해결함 ㅋ", time: "1시간 전" },
+    { avatar: "노", avatarColor: "bg-amber-600", text: "노션 팀플 협업 꿀이다", time: "2시간 전" },
+  ],
+  qa: [
+    { avatar: "Q", avatarColor: "bg-rose-600", text: "Claude PC Mac에서 실행이 안 돼요 😢", time: "5분 전" },
+    { avatar: "W", avatarColor: "bg-orange-600", text: "라이선스 키 인증 실패 뜨는데요", time: "18분 전" },
+    { avatar: "Z", avatarColor: "bg-pink-600", text: "OBS 화질 설정 어떻게 해야 해요?", time: "35분 전" },
+    { avatar: "S", avatarColor: "bg-teal-600", text: "팀뷰어 연결이 자꾸 끊겨요", time: "1시간 전" },
+    { avatar: "M", avatarColor: "bg-cyan-600", text: "로지텍 HUB 무한로딩 해결됐나요?", time: "3시간 전" },
+  ],
+  error: [
+    { avatar: "E", avatarColor: "bg-red-600", text: "윈도우 11 호환성 관련 질문이요", time: "10분 전" },
+    { avatar: "V", avatarColor: "bg-slate-600", text: "V3 설치 후 느려졌어요", time: "30분 전" },
+    { avatar: "A", avatarColor: "bg-purple-600", text: "AnyCover4PC 오류 뜨는 분?", time: "45분 전" },
+    { avatar: "C", avatarColor: "bg-blue-700", text: "캡컷 실행 안 되는 분 계신가요", time: "2시간 전" },
+    { avatar: "R", avatarColor: "bg-green-700", text: "랜카드 드라이버 설치 오류입니다", time: "4시간 전" },
+  ],
+  hot: [
+    { avatar: "🔥", avatarColor: "bg-orange-600", text: "이번 달 필수 유틸리티 Top 10", time: "30분 전" },
+    { avatar: "⭐", avatarColor: "bg-yellow-600", text: "무료 폰트 모음 최신버전", time: "1시간 전" },
+    { avatar: "💎", avatarColor: "bg-blue-600", text: "백신 없이 윈도우 지키는 법", time: "2시간 전" },
+    { avatar: "🚀", avatarColor: "bg-violet-600", text: "OBS 최적 설정 완벽 가이드", time: "3시간 전" },
+    { avatar: "🎯", avatarColor: "bg-pink-600", text: "재설치 없이 시스템 최적화 팁", time: "5시간 전" },
+  ],
+};
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      <svg className="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <span className="text-slate-200 text-xs font-semibold">{rating}</span>
+    </div>
+  );
+}
+
+type FeedItem = { avatar: string; avatarColor: string; text: string; time: string };
+
+function FeedColumn({ title, items, href }: { title: string; items: FeedItem[]; href: string }) {
+  return (
+    <div className="bg-[#1d2027] rounded-2xl border border-[#424754]/40 overflow-hidden">
+      {/* 컬럼 헤더 */}
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[#424754]/30">
+        <h3 className="text-sm font-bold text-[#e1e2ec]">{title}</h3>
+        <Link href={href} className="text-xs text-[#adc6ff] hover:text-blue-300 transition-colors">전체 →</Link>
+      </div>
+      {/* 피드 아이템 */}
+      <ul className="divide-y divide-[#424754]/20">
+        {items.map((item, i) => (
+          <li key={i} className="feed-item flex items-center gap-3 px-4 py-3 cursor-pointer">
+            <div className={`w-8 h-8 ${item.avatarColor} rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0`}>
+              {item.avatar}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="feed-title text-[#c2c6d6] text-xs leading-snug truncate transition-colors">{item.text}</p>
+              <p className="text-[#8c909f] text-[10px] mt-0.5">{item.time}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="space-y-12">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-xl">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">이번 주 필수 추천 소프트웨어</h1>
-          <p className="text-lg text-blue-100 mb-8">안전성이 검증된 공식 최신 버전의 PC 앱을 가장 빠르게 다운로드하세요.</p>
-          <Link href="/app/claude-pc" className="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-50 transition">
-            클로드 PC버전 다운로드 가기
-          </Link>
+    <div className="min-h-screen">
+
+      {/* ── HERO SECTION (Stitch 디자인) ── */}
+      <section className="hero-gradient relative overflow-hidden rounded-3xl mx-4 mt-4 mb-16">
+        {/* 배경 글로우 효과 */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-blue-500/20 blur-3xl rounded-full" />
+        
+        <div className="relative z-10 px-8 py-16 md:py-20 text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+            <span className="w-1.5 h-1.5 bg-blue-300 rounded-full animate-pulse"></span>
+            이번 주 업데이트된 소프트웨어
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-tight">
+            이번 주 필수 추천<br className="hidden md:block" /> 소프트웨어
+          </h1>
+          <p className="text-lg text-white/70 mb-8 leading-relaxed">
+            엄선된 프리미엄 PC 소프트웨어를 한 곳에서 안전하게 만나보세요.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link href="/app/claude-pc" className="bg-white text-blue-900 font-bold px-7 py-3 rounded-full hover:bg-blue-50 transition-all shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5">
+              지금 확인하기
+            </Link>
+            <Link href="/community" className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/20 transition-all">
+              💬 커뮤니티 보기
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* DRIVE MAP BANNER */}
-      <div className="pb-4">
-        <a href="https://drive.weknews.com/" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 rounded-3xl p-6 md:p-8 text-white shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-            <div className="absolute -left-10 -top-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:bg-white/30 transition-colors"></div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
-                <div className="flex items-center gap-4">
-                    <span className="text-5xl group-hover:scale-110 transition-transform">🚗</span>
-                    <div>
-                        <h3 className="text-xl md:text-2xl font-black mb-1">답답할 땐? 전국 감성 드라이브 코스</h3>
-                        <p className="text-orange-100 font-medium text-sm md:text-base">바다, 노을, 야경까지! 1초 만에 확인하는 인생 드라이브 코스 모음</p>
-                    </div>
-                </div>
-                <span className="shrink-0 w-full md:w-auto text-center bg-white text-orange-600 font-black px-8 py-4 rounded-2xl shadow-md group-hover:bg-orange-50 transition-colors text-lg">
-                    코스 보기 👉
-                </span>
-            </div>
-        </a>
-      </div>
+      <div className="max-w-5xl mx-auto px-4 space-y-16">
 
-      {/* Trending Apps Grid */}
-      <section>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">실시간 급상승 앱</h2>
-          <button className="text-blue-600 font-medium hover:underline">모두 보기</button>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {apps.map((app) => (
-            <Link href={`/app/${app.id}`} key={app.id} className="block group">
-              <div className="bg-slate-800/40 rounded-2xl p-6 shadow-sm border border-slate-700/50 hover:bg-slate-800 transition">
-                <div className="flex items-start gap-4">
-                  {/* App Icon Mock */}
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-3xl shadow-sm ${app.iconColor} ${app.textColor}`}>
+        {/* ── APP GRID (Stitch 디자인 카드) ── */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-[#e1e2ec]">🔥 실시간 급상승 앱</h2>
+              <p className="text-sm text-[#8c909f] mt-1">유저들이 가장 많이 찾는 소프트웨어</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {apps.map((app) => (
+              <Link href={`/app/${app.id}`} key={app.id}>
+                <div className="app-card bg-[#1d2027] rounded-2xl p-5 border border-[#424754]/50 flex items-start gap-4 cursor-pointer">
+                  {/* 앱 아이콘 */}
+                  <div className={`w-14 h-14 ${app.iconColor} rounded-2xl flex items-center justify-center font-bold text-2xl text-white shadow-sm shrink-0`}>
                     {app.iconText}
                   </div>
-                  
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg text-white group-hover:text-blue-400 transition line-clamp-1">{app.name}</h3>
-                    <p className="text-sm text-slate-400 mb-2">{app.developer}</p>
-                    
-                    <div className="flex items-center gap-3 text-xs text-slate-400">
-                      <span className="flex items-center">
-                        <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        {app.rating}
+                  {/* 앱 정보 */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-[#e1e2ec] text-sm leading-tight mb-1 line-clamp-2">{app.name}</h3>
+                    <p className="text-[#8c909f] text-xs mb-2">{app.developer}</p>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <StarRating rating={app.rating} />
+                      <span className="text-[#8c909f] text-xs">리뷰 {app.reviews}</span>
+                      <span className="text-[10px] font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full whitespace-nowrap">
+                        {app.category}
                       </span>
-                      <span>리뷰 {app.reviews}</span>
-                      <span className="bg-slate-700 px-2 py-0.5 rounded-full whitespace-nowrap">{app.category}</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ── COMMUNITY HUB (이지데이 스타일 멀티컬럼) ── */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-[#e1e2ec]">💬 실시간 커뮤니티</h2>
+              <p className="text-sm text-[#8c909f] mt-1">로그인 없이 자유롭게 소통하는 익명 톡</p>
+            </div>
+            <Link href="/community" className="text-sm text-[#adc6ff] hover:text-blue-300 font-medium transition-colors border border-[#424754]/60 bg-[#1d2027] px-4 py-2 rounded-full">
+              전체 보기 →
             </Link>
-          ))}
-        </div>
-      </section>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <FeedColumn title="🔥 자유톡" items={COMMUNITY_FEEDS.free} href="/community" />
+            <FeedColumn title="💡 질문/해결" items={COMMUNITY_FEEDS.qa} href="/community" />
+            <FeedColumn title="🛠️ 설치 오류" items={COMMUNITY_FEEDS.error} href="/community" />
+            <FeedColumn title="⭐ 인기글" items={COMMUNITY_FEEDS.hot} href="/community" />
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }

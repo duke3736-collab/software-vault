@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AdSense from "@/components/AdSense";
+import CommunitySection from "@/components/CommunitySection";
 
 export const metadata: Metadata = {
   title: "Claude (클로드) PC버전 무료 다운로드 및 설치 방법 (최신)",
@@ -103,6 +104,9 @@ export default function ClaudePcDownload() {
           </details>
         </div>
       </section>
+
+      {/* 실시간 익명 톡 커뮤니티 영역 */}
+      <CommunitySection appId="claude-pc" appName="Claude (클로드) PC버전" />
     </div>
   );
 }
