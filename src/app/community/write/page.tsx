@@ -20,6 +20,9 @@ const APPS_LIST = [
   { id: 'general', name: '선택 안함 (일반 커뮤니티)' },
 ];
 
+// 관리자 인증 키 (운영자 전용 비밀키 - 기본: admin)
+const ADMIN_SECRET_KEY = 'admin';
+
 export default function CommunityWritePage() {
   const router = useRouter();
 
@@ -28,8 +31,10 @@ export default function CommunityWritePage() {
   const [appId, setAppId] = useState('claude-pc');
   const [content, setContent] = useState('');
 
-  // 🔗 링크 첨부 관련 상태
-  const [hasCtaLink, setHasCtaLink] = useState(true);
+  // 🔒 관리자 전용 링크 첨부 관련 상태
+  const [hasCtaLink, setHasCtaLink] = useState(false);
+  const [adminKey, setAdminKey] = useState('');
+  const [isAdminUnlocked, setIsAdminUnlocked] = useState(false);
   const [ctaText, setCtaText] = useState('👉 이번주 추천 정보 및 바로가기 확인');
   const [ctaUrl, setCtaUrl] = useState('https://software.weknews.com/app/claude-pc');
 
@@ -51,6 +56,16 @@ export default function CommunityWritePage() {
     setAvatarColor(color);
   };
 
+  const handleAdminAuth = () => {
+    if (adminKey.trim().toLowerCase() === ADMIN_SECRET_KEY) {
+      setIsAdminUnlocked(true);
+      setHasCtaLink(true);
+      alert('🔒 운영자(관리자) 인증이 완료되었습니다. 강조 링크 첨부 기능이 활성화됩니다.');
+    } else {
+      alert('❌ 비밀키가 일치하지 않습니다. (관리자만 링크를 첨부할 수 있습니다)');
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) {
@@ -68,6 +83,10 @@ export default function CommunityWritePage() {
 
     const selectedApp = APPS_LIST.find(a => a.id === appId);
 
+    // 관리자 인증이 완료된 경우에만 CTA 링크 첨부
+    const finalCtaText = isAdminUnlocked && hasCtaLink && ctaText.trim() ? ctaText.trim() : undefined;
+    const finalCtaUrl = isAdminUnlocked && hasCtaLink && ctaUrl.trim() ? ctaUrl.trim() : undefined;
+
     const created = addPost({
       title: title.trim(),
       appId: appId,
@@ -76,8 +95,8 @@ export default function CommunityWritePage() {
       avatarColor: avatarColor,
       category: category,
       content: content.trim(),
-      ctaText: hasCtaLink && ctaText.trim() ? ctaText.trim() : undefined,
-      ctaUrl: hasCtaLink && ctaUrl.trim() ? ctaUrl.trim() : undefined,
+      ctaText: finalCtaText,
+      ctaUrl: finalCtaUrl,
       passwordHash: password.trim(),
     });
 
@@ -156,7 +175,7 @@ export default function CommunityWritePage() {
         {/* 3. 본문 내용 */}
         <div>
           <label className="block text-xs font-bold text-[#adc6ff] uppercase tracking-wider mb-2">
-            본문 내용 * (줄바꿈 및 일반 URL 자동 링킹 지원)
+            본문 내용 *
           </label>
           <textarea
             placeholder={`내용을 입력해주세요. (최소 3줄 이상 권장)\n\n예:\n버튼을 누르면 관련 정보와 시나리오를 확인할 수 있습니다.\n확인된 자료를 조건별로 정리하여 안내해 드립니다.`}
@@ -167,24 +186,42 @@ export default function CommunityWritePage() {
           />
         </div>
 
-        {/* 4. 🔗 바로가기 배너 링크 첨부 섹션 (이지데이 스타일) */}
-        <div className="bg-[#1d2027]/70 border border-blue-500/30 rounded-2xl p-5 space-y-4">
+        {/* 4. 🔒 관리자 전용 바로가기 배너 링크 첨부 섹션 */}
+        <div className="bg-[#1d2027]/70 border border-[#424754]/60 rounded-2xl p-5 space-y-4">
           <div className="flex items-center justify-between">
             <label className="text-sm font-bold text-blue-400 flex items-center gap-2">
-              <span>👉</span> 이지데이 스타일 강조 배너 링크 첨부
+              <span>🔒</span> 바로가기 강조 배너 링크 첨부 (운영자/관리자 전용)
             </label>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                checked={hasCtaLink}
-                onChange={(e) => setHasCtaLink(e.target.checked)}
-                className="sr-only peer"
-              />
-              <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-            </label>
+            {isAdminUnlocked && (
+              <span className="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2.5 py-1 rounded-full font-bold">
+                ✅ 인증 완료
+              </span>
+            )}
           </div>
 
-          {hasCtaLink && (
+          {!isAdminUnlocked ? (
+            <div className="p-4 bg-[#10131a] rounded-xl border border-slate-700/50 space-y-3">
+              <p className="text-xs text-slate-400">
+                무단 광고/스팸 링크를 방지하기 위해 **강조 배너 링크 첨부는 운영자(관리자)만 가능합니다.**
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="password"
+                  placeholder="관리자 비밀키 입력 (기본: admin)"
+                  value={adminKey}
+                  onChange={(e) => setAdminKey(e.target.value)}
+                  className="flex-1 bg-[#1d2027] border border-[#424754] text-slate-200 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-blue-500"
+                />
+                <button
+                  type="button"
+                  onClick={handleAdminAuth}
+                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2 rounded-xl transition"
+                >
+                  인증하기
+                </button>
+              </div>
+            </div>
+          ) : (
             <div className="space-y-3 pt-2">
               <div>
                 <span className="text-xs text-slate-400 block mb-1">배너 버튼 문구 (손가락 이모지와 함께 큼직하게 표시됩니다)</span>
