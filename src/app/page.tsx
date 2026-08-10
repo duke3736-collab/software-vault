@@ -1,6 +1,11 @@
 import Link from "next/link";
 
 const apps = [
+  { id: "everytime-pc", name: "에브리타임 (Everytime) PC버전", developer: "Vinu Labs", category: "커뮤니티", rating: 4.9, reviews: "40만", iconColor: "bg-red-600", iconText: "E" },
+  { id: "geek-uninstaller", name: "Geek Uninstaller (프로그램 완벽삭제)", developer: "Thomas Koen", category: "유틸리티", rating: 5.0, reviews: "9만", iconColor: "bg-cyan-600", iconText: "G" },
+  { id: "winrar", name: "WinRAR (윈라) 64bit 최신 한글판", developer: "RARLAB", category: "유틸리티", rating: 4.9, reviews: "35만", iconColor: "bg-blue-700", iconText: "W" },
+  { id: "notepad-plus-plus", name: "Notepad++ (노트패드++) 초고속 에디터", developer: "Don Ho", category: "생산성", rating: 5.0, reviews: "25만", iconColor: "bg-green-600", iconText: "N" },
+  { id: "treesize-free", name: "TreeSize Free (SSD 용량 정리 툴)", developer: "JAM Software", category: "유틸리티", rating: 4.9, reviews: "7만", iconColor: "bg-teal-600", iconText: "T" },
   { id: "deepseek-pc", name: "DeepSeek (딥시크) AI PC버전", developer: "DeepSeek", category: "AI 도구", rating: 4.9, reviews: "8.5만", iconColor: "bg-blue-600", iconText: "D" },
   { id: "potplayer", name: "팟플레이어 (PotPlayer) 64bit 무광고", developer: "Kakao Corp", category: "동영상 재생", rating: 4.9, reviews: "15만", iconColor: "bg-amber-500", iconText: "P" },
   { id: "honeyview", name: "꿀뷰 (Honeyview) 초고속 사진뷰어", developer: "Bandisoft", category: "유틸리티", rating: 5.0, reviews: "20만", iconColor: "bg-yellow-500", iconText: "H" },
