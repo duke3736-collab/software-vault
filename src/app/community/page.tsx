@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getStoredPosts, savePosts, PostItem } from '@/lib/postsStore';
 
-// 모든 앱 목록 - 카테고리별
 const APP_CATEGORIES = [
   {
     category: 'AI 도구',
@@ -62,125 +62,64 @@ const APP_CATEGORIES = [
   },
 ];
 
-const ALL_APP_IDS = APP_CATEGORIES.flatMap(c => c.apps.map(a => a.id));
 const APP_NAME_MAP: Record<string, string> = {};
 APP_CATEGORIES.forEach(c => c.apps.forEach(a => { APP_NAME_MAP[a.id] = a.name; }));
 
-const AVATAR_COLORS = [
-  'bg-rose-500', 'bg-violet-500', 'bg-blue-500', 'bg-emerald-500',
-  'bg-amber-500', 'bg-cyan-500', 'bg-fuchsia-500', 'bg-indigo-500',
-];
-
-interface Post {
-  id: string;
-  appId: string;
-  nickname: string;
-  avatarColor: string;
-  category: '자유톡' | '질문/해결' | '설치 오류';
-  content: string;
-  passwordHash: string;
-  createdAt: string;
-  likes: number;
-  liked: boolean;
-}
-
 function getTimeAgo(dateStr: string): string {
+  if (!dateStr) return '방금 전';
   const now = new Date();
-  const then = new Date(dateStr);
+  const then = new Date(dateStr.replace(/\./g, '-'));
+  if (isNaN(then.getTime())) return dateStr;
   const diffMs = now.getTime() - then.getTime();
   const diffMin = Math.floor(diffMs / 60000);
   if (diffMin < 1) return '방금 전';
   if (diffMin < 60) return `${diffMin}분 전`;
   const diffH = Math.floor(diffMin / 60);
   if (diffH < 24) return `${diffH}시간 전`;
-  return then.toLocaleDateString('ko-KR', { month: 'numeric', day: 'numeric' });
+  return dateStr.split(' ')[0] || dateStr;
 }
-
-// 샘플 데모 글 (LocalStorage가 비어있을 때 보여줄 예시)
-const DEMO_POSTS: Post[] = [
-  {
-    id: 'demo1', appId: 'kalmuri', nickname: '날렵한 개발자 312', avatarColor: 'bg-violet-500',
-    category: '자유톡', content: '칼무리 진짜 오래 쓰고 있는데 아직도 최고임. 가볍고 빠르고 광고 없고.',
-    passwordHash: '', createdAt: new Date(Date.now() - 3 * 60000).toISOString(), likes: 12, liked: false,
-  },
-  {
-    id: 'demo2', appId: 'claude-pc', nickname: '행복한 맥북 781', avatarColor: 'bg-blue-500',
-    category: '질문/해결', content: 'Claude PC버전 Mac에서 설치 후 실행이 안 되는 분 계신가요? 저만 그런건지... 😢',
-    passwordHash: '', createdAt: new Date(Date.now() - 15 * 60000).toISOString(), likes: 5, liked: false,
-  },
-  {
-    id: 'demo3', appId: 'bandizip', nickname: '똑똑한 사자 445', avatarColor: 'bg-emerald-500',
-    category: '자유톡', content: '반디집 진짜 최고. 7zip보다 한글 파일명 처리가 훨씬 낫고 속도도 빠름.',
-    passwordHash: '', createdAt: new Date(Date.now() - 40 * 60000).toISOString(), likes: 8, liked: false,
-  },
-  {
-    id: 'demo4', appId: 'discord', nickname: '즐거운 너구리 927', avatarColor: 'bg-rose-500',
-    category: '설치 오류', content: '디스코드 마이크 안 잡히는 분들, 설정>음성&영상에서 입력장치 수동으로 바꿔보세요. 저는 이걸로 해결했어요.',
-    passwordHash: '', createdAt: new Date(Date.now() - 2 * 3600000).toISOString(), likes: 23, liked: false,
-  },
-  {
-    id: 'demo5', appId: 'ancamera-old', nickname: '귀여운 호랑이 556', avatarColor: 'bg-amber-500',
-    category: '자유톡', content: '안카메라 구버전 USB에 넣어다니면서 쓰는데 진짜 편함. 어디서든 꺼내서 바로 씀.',
-    passwordHash: '', createdAt: new Date(Date.now() - 5 * 3600000).toISOString(), likes: 6, liked: false,
-  },
-  {
-    id: 'demo6', appId: 'obs-studio', nickname: '신비로운 칼무리 103', avatarColor: 'bg-cyan-500',
-    category: '질문/해결', content: 'OBS 처음 쓰는데 화질 설정 어떻게 하면 좋나요? 유튜브 업로드 기준으로요.',
-    passwordHash: '', createdAt: new Date(Date.now() - 8 * 3600000).toISOString(), likes: 4, liked: false,
-  },
-];
 
 const CATEGORY_BADGE: Record<string, string> = {
   '자유톡': 'text-sky-400 bg-sky-400/10 border border-sky-500/30',
+  '익명톡': 'text-purple-400 bg-purple-400/10 border border-purple-500/30',
   '질문/해결': 'text-emerald-400 bg-emerald-400/10 border border-emerald-500/30',
   '설치 오류': 'text-rose-400 bg-rose-400/10 border border-rose-500/30',
+  '육아톡': 'text-amber-400 bg-amber-400/10 border border-amber-500/30',
+  '러브톡': 'text-pink-400 bg-pink-400/10 border border-pink-500/30',
 };
 
 export default function CommunityPage() {
-  const [allPosts, setAllPosts] = useState<Post[]>([]);
+  const [allPosts, setAllPosts] = useState<PostItem[]>([]);
   const [activeFilter, setActiveFilter] = useState<'전체' | '자유톡' | '질문/해결' | '설치 오류' | '인기글'>('전체');
   const [activeApp, setActiveApp] = useState<string>('전체');
 
-  // 모든 앱의 LocalStorage에서 글 불러오기
   useEffect(() => {
-    const loaded: Post[] = [];
-    ALL_APP_IDS.forEach(id => {
-      const raw = localStorage.getItem(`sv_community_posts_${id}`);
-      if (raw) {
-        try { loaded.push(...JSON.parse(raw)); } catch {}
-      }
-    });
-    // 실제 글이 없으면 데모 글 표시
-    setAllPosts(loaded.length > 0 ? loaded.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) : DEMO_POSTS);
+    setAllPosts(getStoredPosts());
   }, []);
 
-  const handleLike = (postId: string) => {
+  const handleLike = (postId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setAllPosts(prev => {
       const updated = prev.map(p =>
         p.id === postId ? { ...p, likes: p.liked ? p.likes - 1 : p.likes + 1, liked: !p.liked } : p
       );
-      // LocalStorage도 업데이트
-      ALL_APP_IDS.forEach(id => {
-        const appPosts = updated.filter(p => p.appId === id);
-        if (appPosts.length > 0) {
-          localStorage.setItem(`sv_community_posts_${id}`, JSON.stringify(appPosts));
-        }
-      });
+      savePosts(updated);
       return updated;
     });
   };
 
   // 필터 적용
   let filtered = allPosts;
-  if (activeFilter === '인기글') filtered = allPosts.filter(p => p.likes >= 3).sort((a, b) => b.likes - a.likes);
+  if (activeFilter === '인기글') filtered = allPosts.filter(p => p.likes >= 3 || p.views >= 50).sort((a, b) => b.likes - a.likes);
   else if (activeFilter !== '전체') filtered = allPosts.filter(p => p.category === activeFilter);
   if (activeApp !== '전체') filtered = filtered.filter(p => p.appId === activeApp);
 
   // 컬럼별 최신 글 (이지데이 멀티컬럼 스타일)
-  const freePosts = allPosts.filter(p => p.category === '자유톡').slice(0, 6);
+  const freePosts = allPosts.filter(p => p.category === '자유톡' || p.category === '익명톡').slice(0, 6);
   const qaPosts = allPosts.filter(p => p.category === '질문/해결').slice(0, 6);
   const errorPosts = allPosts.filter(p => p.category === '설치 오류').slice(0, 6);
-  const hotPosts = [...allPosts].sort((a, b) => b.likes - a.likes).slice(0, 6);
+  const hotPosts = [...allPosts].sort((a, b) => (b.likes + b.views) - (a.likes + a.views)).slice(0, 6);
 
   return (
     <div className="flex gap-6 min-h-screen">
@@ -240,29 +179,36 @@ export default function CommunityPage() {
       {/* ── 메인 영역 ── */}
       <div className="flex-1 min-w-0 space-y-6">
 
-        {/* 메인 타이틀 */}
-        <div className="flex items-center justify-between">
+        {/* 메인 타이틀 & 글쓰기 버튼 */}
+        <div className="flex items-center justify-between bg-[#10131a] p-5 rounded-2xl border border-[#424754]/50 shadow-md">
           <div>
-            <h1 className="text-2xl font-bold text-white">💬 소프트웨어 커뮤니티</h1>
-            <p className="text-sm text-slate-400 mt-1">로그인 없이 자유롭게 질문하고 팁을 공유해 보세요.</p>
+            <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+              <span>💬</span> 소프트웨어 커뮤니티
+            </h1>
+            <p className="text-sm text-slate-400 mt-1">로그인 없이 자유롭게 질문하고 링크와 정보를 나누세요.</p>
           </div>
-          <span className="text-xs text-slate-500 bg-slate-800/60 border border-slate-700/50 px-3 py-1.5 rounded-full">
-            총 {allPosts.length}개 글
-          </span>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/community/write"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg hover:shadow-blue-500/25 transition transform hover:-translate-y-0.5 flex items-center gap-1.5"
+            >
+              <span>✏️</span> 새 글 쓰기
+            </Link>
+          </div>
         </div>
 
         {/* 필터가 '전체'이고 앱도 '전체'일 때 이지데이식 멀티컬럼 허브 */}
         {activeFilter === '전체' && activeApp === '전체' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { title: '☕ 자유톡', posts: freePosts, color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-500/30' },
-              { title: '❓ 질문/해결', posts: qaPosts, color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-500/30' },
-              { title: '⚠️ 설치 오류', posts: errorPosts, color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-500/30' },
-              { title: '🔥 인기글', posts: hotPosts, color: 'text-orange-400', bg: 'bg-orange-400/10 border-orange-500/30' },
+              { title: '☕ 자유톡 / 익명톡', posts: freePosts, color: 'text-sky-400' },
+              { title: '❓ 질문 / 해결', posts: qaPosts, color: 'text-emerald-400' },
+              { title: '⚠️ 설치 오류', posts: errorPosts, color: 'text-rose-400' },
+              { title: '🔥 인기글', posts: hotPosts, color: 'text-orange-400' },
             ].map(col => (
-              <div key={col.title} className="bg-slate-800/30 rounded-2xl border border-slate-700/50 overflow-hidden">
+              <div key={col.title} className="bg-slate-800/30 rounded-2xl border border-slate-700/50 overflow-hidden shadow-md">
                 {/* 컬럼 헤더 */}
-                <div className={`flex items-center justify-between px-4 py-3 border-b border-slate-700/40`}>
+                <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/40 bg-slate-900/30">
                   <span className={`text-sm font-bold ${col.color}`}>{col.title}</span>
                   <span className="text-xs text-slate-500">최신순</span>
                 </div>
@@ -271,33 +217,39 @@ export default function CommunityPage() {
                   {col.posts.length === 0 ? (
                     <li className="px-4 py-6 text-center text-xs text-slate-600">아직 글이 없습니다.</li>
                   ) : col.posts.map(post => (
-                    <li key={post.id} className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800/30 transition group">
-                      <div className={`w-7 h-7 ${post.avatarColor} rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5`}>
-                        {post.nickname.charAt(0)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">{post.content}</p>
-                        <div className="flex items-center gap-2 mt-1.5">
-                          <span className="text-xs text-slate-500">{post.nickname}</span>
-                          <Link href={`/app/${post.appId}`} className="text-xs text-blue-500/70 hover:text-blue-400 transition">
-                            [{APP_NAME_MAP[post.appId] || post.appId}]
-                          </Link>
-                          <span className="text-xs text-slate-600 ml-auto">{getTimeAgo(post.createdAt)}</span>
-                          {post.likes > 0 && (
-                            <span className="text-xs text-rose-400">❤️ {post.likes}</span>
-                          )}
+                    <li key={post.id}>
+                      <Link
+                        href={`/community/post/${post.id}`}
+                        className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800/40 transition group"
+                      >
+                        <div className={`w-8 h-8 ${post.avatarColor || 'bg-blue-600'} rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5 shadow-sm`}>
+                          {post.nickname ? post.nickname.charAt(0) : '익'}
                         </div>
-                      </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-bold text-slate-200 group-hover:text-blue-400 transition line-clamp-1 mb-1">
+                            {post.title || post.content}
+                          </p>
+                          <p className="text-xs text-slate-400 line-clamp-1 mb-1.5 font-normal">
+                            {post.content}
+                          </p>
+                          <div className="flex items-center gap-2 text-[11px] text-slate-500">
+                            <span>{post.nickname}</span>
+                            <span>·</span>
+                            <span>{getTimeAgo(post.createdAt)}</span>
+                            <span className="ml-auto font-mono">조회 {post.views || 1}</span>
+                          </div>
+                        </div>
+                      </Link>
                     </li>
                   ))}
                 </ul>
                 {/* 컬럼 하단 */}
-                <div className="px-4 py-2 border-t border-slate-700/30 bg-slate-900/20">
+                <div className="px-4 py-2.5 border-t border-slate-700/30 bg-slate-900/20 text-right">
                   <button
-                    onClick={() => setActiveFilter(col.title.split(' ')[1] as any)}
-                    className="text-xs text-slate-500 hover:text-slate-300 transition"
+                    onClick={() => setActiveFilter(col.title.includes('자유') ? '자유톡' : col.title.includes('질문') ? '질문/해결' : col.title.includes('오류') ? '설치 오류' : '인기글')}
+                    className="text-xs text-slate-400 hover:text-white transition"
                   >
-                    전체 보기 →
+                    더보기 →
                   </button>
                 </div>
               </div>
@@ -305,18 +257,18 @@ export default function CommunityPage() {
           </div>
         ) : (
           /* 필터/앱 선택 시 단일 피드 뷰 */
-          <div className="bg-slate-800/30 rounded-2xl border border-slate-700/50 overflow-hidden">
+          <div className="bg-slate-800/30 rounded-2xl border border-slate-700/50 overflow-hidden shadow-lg">
             {/* 피드 헤더 */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-700/40 bg-slate-800/40">
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-700/40 bg-slate-800/40">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-bold text-white">
                   {activeApp !== '전체' ? `📱 ${APP_NAME_MAP[activeApp] || activeApp} 톡` : `${activeFilter}`}
                 </span>
-                <span className="text-xs text-slate-500">{filtered.length}개</span>
+                <span className="text-xs text-slate-500">({filtered.length}개)</span>
               </div>
               <button
                 onClick={() => { setActiveFilter('전체'); setActiveApp('전체'); }}
-                className="text-xs text-slate-500 hover:text-slate-300 transition"
+                className="text-xs text-slate-400 hover:text-white transition"
               >
                 ← 전체 허브로
               </button>
@@ -327,46 +279,52 @@ export default function CommunityPage() {
               {filtered.length === 0 ? (
                 <div className="text-center py-16 text-slate-500">
                   <p className="text-3xl mb-3">💬</p>
-                  <p className="text-sm">아직 글이 없습니다. 첫 글을 남겨보세요!</p>
-                  {activeApp !== '전체' && (
-                    <Link href={`/app/${activeApp}`} className="text-xs text-blue-400 hover:underline mt-2 block">
-                      → {APP_NAME_MAP[activeApp]} 페이지에서 글쓰기
-                    </Link>
-                  )}
+                  <p className="text-sm">아직 작성된 글이 없습니다.</p>
+                  <Link href="/community/write" className="text-xs text-blue-400 hover:underline mt-2 inline-block font-semibold">
+                    → 첫 글 쓰러가기
+                  </Link>
                 </div>
               ) : (
                 filtered.map((post, i) => (
-                  <article key={post.id} className="flex gap-3 px-5 py-4 hover:bg-slate-800/20 transition group">
-                    <span className="text-xs text-slate-700 font-mono shrink-0 mt-1 w-5 text-right">{String(filtered.length - i).padStart(2, '0')}</span>
-                    <div className={`w-9 h-9 ${post.avatarColor} rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0`}>
-                      {post.nickname.charAt(0)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1 flex-wrap">
-                        <span className="text-sm font-bold text-slate-200">{post.nickname}</span>
-                        <span className={`text-xs px-1.5 py-0.5 rounded-full ${CATEGORY_BADGE[post.category]}`}>{post.category}</span>
-                        <Link href={`/app/${post.appId}`} className="text-xs text-blue-500/60 hover:text-blue-400 transition">
-                          [{APP_NAME_MAP[post.appId] || post.appId}]
-                        </Link>
-                        <span className="text-xs text-slate-500 ml-auto">{getTimeAgo(post.createdAt)}</span>
+                  <article key={post.id} className="hover:bg-slate-800/30 transition group">
+                    <Link href={`/community/post/${post.id}`} className="flex gap-4 px-5 py-4">
+                      <span className="text-xs text-slate-600 font-mono shrink-0 mt-1 w-5 text-right">
+                        {String(filtered.length - i).padStart(2, '0')}
+                      </span>
+                      <div className={`w-10 h-10 ${post.avatarColor || 'bg-blue-600'} rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0 shadow-sm`}>
+                        {post.nickname ? post.nickname.charAt(0) : '익'}
                       </div>
-                      <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">{post.content}</p>
-                      <div className="flex items-center gap-4 mt-2">
-                        <button
-                          type="button"
-                          onClick={() => handleLike(post.id)}
-                          className={`flex items-center gap-1 text-xs font-medium transition ${post.liked ? 'text-rose-400' : 'text-slate-500 hover:text-rose-400'}`}
-                        >
-                          <svg className="w-3.5 h-3.5" fill={post.liked ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                          </svg>
-                          공감 {post.likes > 0 && post.likes}
-                        </button>
-                        <Link href={`/app/${post.appId}`} className="text-xs text-slate-600 hover:text-blue-400 transition ml-auto opacity-0 group-hover:opacity-100">
-                          앱 페이지 →
-                        </Link>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="text-sm font-bold text-slate-200 group-hover:text-blue-400 transition">
+                            {post.title || post.content}
+                          </span>
+                          <span className={`text-xs px-2 py-0.5 rounded-full ${CATEGORY_BADGE[post.category] || 'bg-slate-700 text-slate-300'}`}>
+                            {post.category}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-400 leading-relaxed line-clamp-2 mb-2">
+                          {post.content}
+                        </p>
+                        <div className="flex items-center gap-4 text-xs text-slate-500">
+                          <span>{post.nickname}</span>
+                          <span>·</span>
+                          <span>{getTimeAgo(post.createdAt)}</span>
+                          <span>·</span>
+                          <span>조회 {post.views || 1}</span>
+                          {post.comments && post.comments.length > 0 && (
+                            <span className="text-blue-400">댓글 {post.comments.length}</span>
+                          )}
+                          <button
+                            type="button"
+                            onClick={(e) => handleLike(post.id, e)}
+                            className={`ml-auto flex items-center gap-1 transition ${post.liked ? 'text-rose-400 font-bold' : 'hover:text-rose-400'}`}
+                          >
+                            ❤️ {post.likes || 0}
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </article>
                 ))
               )}
