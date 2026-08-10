@@ -41,13 +41,17 @@ export default function PostDetailPage({ params }: { params: Promise<{ id: strin
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // 1. 조회수 증가
-    incrementViews(postId);
+    // 1. 조회수 1 누적 증가 (세션당 1회씩 깔끔하게 실시간 누적)
+    const viewKey = `sv_viewed_session_${postId}`;
+    if (typeof window !== 'undefined' && !sessionStorage.getItem(viewKey)) {
+      incrementViews(postId);
+      sessionStorage.setItem(viewKey, 'true');
+    }
     
     // 2. 게시글 로드
     const found = getPostById(postId);
     if (found) {
-      setPost(found);
+      setPost({ ...found });
     }
     setAllPosts(getStoredPosts());
   }, [postId]);
