@@ -5,26 +5,26 @@ import Link from 'next/link';
 import { getStoredPosts, getPostById, incrementViews, addComment, PostItem } from '@/lib/postsStore';
 import AdSense from '@/components/AdSense';
 
-const EZDAY_NAV_SECTIONS = [
+const COMMUNITY_SIDEBAR_SECTIONS = [
   {
-    title: '꿈해몽',
-    items: ['꿈해몽톡', '주제별꿈풀이'],
+    title: '🤖 인기 AI 소프트웨어',
+    items: ['DeepSeek AI', 'Claude PC버전', 'ChatGPT 데스크톱'],
   },
   {
-    title: '재미로 보는 시리즈',
-    items: ['사주풀이', '이름추천'],
+    title: '🔧 추천 PC 유틸리티',
+    items: ['칼무리 캡처', '반디집 초고속', '3DP Net 포맷', 'Everything 검색', 'Geek Uninstaller'],
   },
   {
-    title: '모두톡',
-    items: ['자유톡', '익명톡', '여자끼리톡', '유머톡', '좋은글', '생활상식', '스포츠동아뉴스', '국제뉴스', '스타일톡', '여행톡'],
+    title: '💬 커뮤니티 톡',
+    items: ['자유톡', '익명톡', '질문/해결', '설치 오류', '꿀팁/노하우', '업데이트 소식'],
   },
   {
-    title: '육아톡',
-    items: ['육아톡', '아기를 기다려요', '난임 이겨내기', '임신에서 출산', '육아Q&A', '학부모톡'],
+    title: '💻 IT · 테크 정보',
+    items: ['AI 활용 가이드', '윈도우 최적화', '무료 소프트웨어', 'PC 견적/세팅'],
   },
   {
-    title: '러브톡',
-    items: ['만남과 이별', '사랑과 전쟁', '나의 남편,남친', '시집 VS 친정', '결혼을 앞두고', '솔직담백 性이야기19', '이혼하고 싶어요19', '불륜과 로맨스19'],
+    title: '🌟 라이프 · 소통',
+    items: ['생활상식', '추천 사이트', '정보공유', '자유수다'],
   },
 ];
 
@@ -99,9 +99,9 @@ export default function PostDetailClient({ postId, initialPost }: { postId: stri
   return (
     <div className="max-w-6xl mx-auto px-2 md:px-4 py-4 flex gap-6 text-[#e1e2ec]">
 
-      {/* ── 1. 이지데이 좌측 카테고리 사이드바 ── */}
+      {/* ── 1. 소프트웨어 보물창고 좌측 카테고리 사이드바 ── */}
       <aside className="hidden lg:block w-48 shrink-0 bg-[#10131a] border border-[#424754]/40 rounded-xl p-4 self-start text-xs space-y-5 shadow-md">
-        {EZDAY_NAV_SECTIONS.map((sec) => (
+        {COMMUNITY_SIDEBAR_SECTIONS.map((sec) => (
           <div key={sec.title} className="border-b border-[#424754]/30 pb-3 last:border-0">
             <h3 className="font-bold text-[#adc6ff] mb-2 text-xs">{sec.title}</h3>
             <ul className="space-y-1 text-[#c2c6d6]">
