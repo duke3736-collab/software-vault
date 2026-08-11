@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation';
 const NAV_LINKS = [
   { href: '/', label: '🔥 추천 앱' },
   { href: '/community', label: '💬 커뮤니티' },
+  { href: 'https://weknews.com', label: '📰 웤뉴스', external: true },
+  { href: 'https://test.weknews.com', label: '🎈 테스트모아', external: true },
   { href: 'https://drive.weknews.com', label: '🚗 드라이브 코스', external: true },
   { href: 'https://map.weknews.com', label: '🏖️ 씨맵', external: true },
   { href: 'https://tools.weknews.com', label: '📊 핀인사이트', external: true },
