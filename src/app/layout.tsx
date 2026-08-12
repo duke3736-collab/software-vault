@@ -35,6 +35,20 @@ export const metadata: Metadata = {
     siteName: "Software Vault",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "/images/og_image.png",
+        width: 1024,
+        height: 1024,
+        alt: "Software Vault",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software Vault - PC 소프트웨어 다운로드 & 커뮤니티",
+    description: "필수 소프트웨어 공식 링크를 한곳에서. 유저들의 팁과 오류 해결법도 함께.",
+    images: ["/images/og_image.png"],
   }
 };
 

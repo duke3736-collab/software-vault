@@ -37,11 +37,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale: 'ko_KR',
       type: 'article',
       publishedTime: post.createdAt,
+      images: [
+        {
+          url: '/images/og_image.png',
+          width: 1024,
+          height: 1024,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: title,
       description: description,
+      images: ['/images/og_image.png'],
     },
     robots: {
       index: true,
