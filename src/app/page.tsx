@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const apps = [
   { id: "everytime-pc", name: "에브리타임 (Everytime) PC버전", developer: "Vinu Labs", category: "커뮤니티", rating: 4.9, reviews: "40만", iconColor: "bg-red-600", iconText: "E" },
@@ -36,6 +39,13 @@ const apps = [
   { id: "ancamera-old", name: "안카메라 구버전 (무설치)", developer: "ancamera", category: "화면 캡처", rating: 4.7, reviews: "4.2만", iconColor: "bg-blue-500", iconText: "A" },
   { id: "picpick", name: "픽픽 (PicPick) 올인원 캡처", developer: "NGWIN", category: "화면 캡처", rating: 4.9, reviews: "5.8만", iconColor: "bg-sky-500", iconText: "P" },
   { id: "kalmuri", name: "칼무리 (Kalmuri) 초경량 캡처", developer: "길길IT", category: "화면 캡처", rating: 4.9, reviews: "3.7만", iconColor: "bg-yellow-500", iconText: "K" },
+  { id: "notion-calendar", name: "노션 캘린더 (Notion Calendar)", developer: "Notion Labs", category: "생산성", rating: 4.8, reviews: "2.3만", iconColor: "bg-red-500", iconText: "N" },
+  { id: "notion-templates", name: "프리미엄 노션 템플릿 모음", developer: "Weknews", category: "생산성", rating: 5.0, reviews: "1.2만", iconColor: "bg-stone-800", iconText: "T" },
+  { id: "vscode", name: "Visual Studio Code (VS Code)", developer: "Microsoft", category: "개발자 도구", rating: 5.0, reviews: "21만", iconColor: "bg-blue-600", iconText: "V" },
+  { id: "figma-pc", name: "피그마 (Figma) 데스크톱", developer: "Figma", category: "디자인", rating: 4.9, reviews: "9.5만", iconColor: "bg-purple-600", iconText: "F" },
+  { id: "steam-launcher", name: "스팀 (Steam) 클라이언트", developer: "Valve", category: "게임 플랫폼", rating: 4.8, reviews: "50만+", iconColor: "bg-slate-800", iconText: "S" },
+  { id: "zoom-pc", name: "줌 (Zoom) PC버전", developer: "Zoom", category: "화상회의", rating: 4.7, reviews: "18만", iconColor: "bg-blue-500", iconText: "Z" },
+  { id: "spotify-pc", name: "스포티파이 (Spotify) PC버전", developer: "Spotify", category: "음악 재생", rating: 4.9, reviews: "22만", iconColor: "bg-green-500", iconText: "S" },
 ];
 
 // 커뮤니티 데모 피드 데이터
@@ -110,6 +120,14 @@ function FeedColumn({ title, items, href }: { title: string; items: FeedItem[]; 
 }
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredApps = apps.filter((app) =>
+    app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    app.developer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    app.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen">
 
@@ -145,17 +163,31 @@ export default function Home() {
 
         {/* ── APP GRID (Stitch 디자인 카드) ── */}
         <section>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
             <div>
               <h2 className="text-2xl font-bold text-[#e1e2ec]">🔥 실시간 급상승 앱</h2>
               <p className="text-sm text-[#8c909f] mt-1">유저들이 가장 많이 찾는 소프트웨어</p>
             </div>
+            {/* 검색창 */}
+            <div className="relative w-full md:w-64">
+              <input
+                type="text"
+                placeholder="소프트웨어 검색..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-[#1d2027] border border-[#424754]/60 text-[#e1e2ec] text-sm rounded-full px-4 py-2 pl-10 focus:outline-none focus:border-blue-500/50 transition-colors"
+              />
+              <svg className="w-4 h-4 text-[#8c909f] absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {apps.map((app) => (
-              <Link href={`/app/${app.id}`} key={app.id}>
-                <div className="app-card bg-[#1d2027] rounded-2xl p-5 border border-[#424754]/50 flex items-start gap-4 cursor-pointer">
+            {filteredApps.length > 0 ? (
+              filteredApps.map((app) => (
+                <Link href={`/app/${app.id}`} key={app.id}>
+                  <div className="app-card bg-[#1d2027] rounded-2xl p-5 border border-[#424754]/50 flex items-start gap-4 cursor-pointer">
                   {/* 앱 아이콘 */}
                   <div className={`w-14 h-14 ${app.iconColor} rounded-2xl flex items-center justify-center font-bold text-2xl text-white shadow-sm shrink-0`}>
                     {app.iconText}
@@ -174,7 +206,12 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
-            ))}
+            ))
+            ) : (
+              <div className="col-span-full py-12 text-center">
+                <p className="text-[#8c909f]">검색 결과가 없습니다.</p>
+              </div>
+            )}
           </div>
         </section>
 
